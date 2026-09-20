@@ -5,41 +5,68 @@ import SectionHeader from "./SectionHeader";
 
 const steps = [
   {
-    title: "Discover the Operational Leaks",
+    title: "Audit",
     description:
-      "We start by mapping your current processes to identify bottlenecks, manual touch points, and hidden inefficiencies that are costing you time and money",
+      "We begin with a deep operational audit across your workflows—mapping data silos, uncovering manual handoffs, and identifying high-friction bottlenecks that drain executive time and budget.",
+    badge: "Operational & Tech Stack Audit",
     icon: (
       <>
-        <circle cx="11" cy="11" r="6.6" />
+        <circle cx="11" cy="11" r="6.5" />
         <path d="M16 16l4.5 4.5" />
+        <path d="M8 11h6" />
+        <path d="M11 8v6" />
       </>
     ),
   },
   {
-    title: "Architect Your Automated Infrastructure",
+    title: "Prioritise",
     description:
-      "Based on our findings, we design a resilient, scalable automation architecture that integrates seamlessly with your existing tools and workflows.",
+      "We evaluate and score automation opportunities using a strategic ROI and feasibility matrix, establishing a high-impact roadmap that tackles high-leverage bottlenecks first.",
+    badge: "High-ROI Opportunity Matrix",
     icon: (
       <>
-        <path d="M4 20V9l8-5 8 5v11" />
-        <path d="M9 20v-6h6v6" />
+        <path d="M4 6h16" />
+        <path d="M7 12h10" />
+        <path d="M10 18h4" />
       </>
     ),
   },
   {
-    title: "Deploy, Test & Document",
+    title: "Build",
     description:
-      "Every workflow ships through a sandbox, gets stress-tested against real data, and is handed over with documentation your team can actually read.",
-    icon: <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />,
-  },
-  {
-    title: "Own the Autonomy",
-    description:
-      "You keep the systems, the logic, and the hours. We stay on for monitoring and expansion as your operation grows.",
+      "Our engineering team architects custom AI agents, deterministic workflows, and API integrations directly inside your software ecosystem—built for resilience, speed, and zero disruption.",
+    badge: "Custom AI & API Infrastructure",
     icon: (
       <>
-        <path d="M4 18 10 12l3.5 3.5L20 9" />
-        <path d="M20 14V9h-5" />
+        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+      </>
+    ),
+  },
+  {
+    title: "Deploy & Monitor",
+    description:
+      "Workflows are rigorously stress-tested in isolated staging environments before going live. We deploy with real-time error alerts, fallback mechanisms, and 24/7 telemetry monitoring.",
+    badge: "Zero-Downtime Sandbox & Telemetry",
+    icon: (
+      <>
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </>
+    ),
+  },
+  {
+    title: "Track & Optimise Iteratively to Optimise",
+    description:
+      "Autonomy is continuous. We analyze real-world telemetry, catch emerging edge cases, and refine workflows iteratively to optimise speed, expand capabilities, and scale seamlessly with your growth.",
+    badge: "Iterative Refinement & Scaling",
+    icon: (
+      <>
+        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+        <path d="M16 16h5v5" />
       </>
     ),
   },
@@ -48,26 +75,77 @@ const steps = [
 export default function Journey() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [lineHeight, setLineHeight] = useState(0);
   const [progress, setProgress] = useState(0);
   const [activeSteps, setActiveSteps] = useState<boolean[]>([]);
 
   useEffect(() => {
+    let rafId: number | null = null;
+
     const update = () => {
       const timeline = timelineRef.current;
       if (!timeline) return;
-      const rect = timeline.getBoundingClientRect();
+
+      const validSteps = stepRefs.current.filter(Boolean) as HTMLDivElement[];
+      if (validSteps.length === 0) return;
+
+      const firstStep = validSteps[0];
+      const lastStep = validSteps[validSteps.length - 1];
+
+      // Distance from center of first step circle to center of last step circle
+      const totalTrackHeight = lastStep.offsetTop - firstStep.offsetTop;
+      setLineHeight(totalTrackHeight);
+
       const vh = window.innerHeight;
-      const ratio = (vh * 0.75 - rect.top) / (rect.height + vh * 0.35);
-      setProgress(Math.min(1, Math.max(0, ratio)));
-      setActiveSteps(stepRefs.current.map((step) => !!step && step.getBoundingClientRect().top < vh * 0.82));
+      // Trigger threshold: 72% down viewport
+      const triggerY = vh * 0.72;
+
+      const firstCircleY = firstStep.getBoundingClientRect().top + 23;
+      const lastCircleY = lastStep.getBoundingClientRect().top + 23;
+      const totalDist = lastCircleY - firstCircleY;
+
+      if (totalDist > 0) {
+        const rawProgress = (triggerY - firstCircleY) / totalDist;
+        setProgress(Math.min(1, Math.max(0, rawProgress)));
+      }
+
+      setActiveSteps(
+        steps.map((_, i) => {
+          const stepEl = stepRefs.current[i];
+          if (!stepEl) return false;
+          const circleCenterY = stepEl.getBoundingClientRect().top + 23;
+          return circleCenterY <= triggerY;
+        })
+      );
+    };
+
+    const onScrollOrResize = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const timer = setTimeout(update, 80);
+
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && timelineRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        onScrollOrResize();
+      });
+      resizeObserver.observe(timelineRef.current);
+    }
+
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      if (resizeObserver) resizeObserver.disconnect();
     };
   }, []);
 
@@ -86,11 +164,23 @@ export default function Journey() {
         description="We empower businesses to operate independently with systems that make growth sustainable and predictable."
       />
 
-      <div ref={timelineRef} className="relative mx-auto mt-12 max-w-4xl pl-1 lg:mt-16">
-        <div className="absolute top-2 bottom-2 left-[21px] w-[3px] rounded-full bg-outline/40" />
+      <div ref={timelineRef} className="relative mx-auto mt-12 max-w-4xl lg:mt-16">
+        {/* Background track connecting first circle to last circle */}
         <div
-          className="absolute top-2 left-[21px] max-h-[calc(100%-1rem)] w-[3px] rounded-full bg-linear-to-b from-secondary to-primary shadow-[0_0_16px_rgb(0_194_255/.45)] transition-[height] duration-200 ease-linear"
-          style={{ height: `${progress * 100}%` }}
+          className="absolute left-[23px] -translate-x-1/2 w-[3px] rounded-full bg-outline/35"
+          style={{
+            top: "23px",
+            height: lineHeight > 0 ? `${lineHeight}px` : "calc(100% - 46px)",
+          }}
+        />
+
+        {/* Dynamic active progress line */}
+        <div
+          className="absolute left-[23px] -translate-x-1/2 w-[3px] rounded-full bg-linear-to-b from-secondary to-primary shadow-[0_0_16px_rgb(0_194_255/.5)] transition-[height] duration-150 ease-out"
+          style={{
+            top: "23px",
+            height: `${progress * lineHeight}px`,
+          }}
         />
 
         {steps.map((step, i) => {
@@ -101,23 +191,59 @@ export default function Journey() {
               ref={(el) => {
                 stepRefs.current[i] = el;
               }}
-              className={`relative grid grid-cols-[46px_1fr] gap-4 pb-8 transition-[opacity,translate] duration-500 last:pb-0 md:gap-6 md:pb-10 ${
-                active ? "opacity-100" : "translate-y-4.5 opacity-0"
+              className={`relative grid grid-cols-[46px_1fr] items-start gap-4 pb-8 transition-all duration-500 last:pb-0 md:gap-6 md:pb-10 ${
+                active ? "translate-y-0 opacity-100" : "translate-y-2 opacity-50"
               }`}
             >
               <span
-                className={`grid size-[46px] place-items-center rounded-full border-3 transition duration-400 ${
-                  active ? "border-primary bg-primary text-white shadow-hover" : "border-line bg-white text-outline"
+                className={`relative z-10 grid size-[46px] shrink-0 place-items-center rounded-full border-3 transition-all duration-400 ${
+                  active
+                    ? "border-primary bg-primary text-white shadow-hover scale-105 ring-4 ring-primary/15"
+                    : "border-line bg-white text-ink-muted scale-100"
                 }`}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
                   {step.icon}
                 </svg>
               </span>
-              <div className="card px-6 py-5 md:px-8 md:py-6">
-                <span className="inline-block rounded-full bg-ice px-3 py-1 font-display text-label-sm text-primary">
-                  STEP {i + 1}
-                </span>
+
+              <div
+                className={`card p-6 transition-all duration-500 md:p-8 ${
+                  active
+                    ? "border-primary/30 shadow-hover ring-1 ring-primary/10"
+                    : "border-line/70"
+                }`}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span
+                    className={`inline-block rounded-full px-3 py-1 font-display text-label-sm transition-colors duration-300 ${
+                      active
+                        ? "bg-primary/10 font-semibold text-primary"
+                        : "bg-ice text-ink-muted"
+                    }`}
+                  >
+                    STEP {i + 1}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-line/60 bg-canvas px-2.5 py-1 text-label-sm text-ink-soft">
+                    <span
+                      className={`size-1.5 rounded-full transition-colors duration-300 ${
+                        active ? "bg-primary" : "bg-outline"
+                      }`}
+                    />
+                    {step.badge}
+                  </span>
+                </div>
+
                 <h3 className="mt-4 mb-2 text-headline-md text-ink">{step.title}</h3>
                 <p className="max-w-xl text-body-md text-pretty text-ink-soft">{step.description}</p>
               </div>

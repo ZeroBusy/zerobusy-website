@@ -19,7 +19,7 @@ const steps = [
     number: "02",
     title: "Automate",
     description:
-      "Our engineering team designs, builds, and implements tailored AI agents, API webhooks, and custom business logic directly inside your tools.",
+      "Our engineering team designs, builds, and implements tailored AI agents, API webhooks, and custom business logic tailored to your business needs.",
     badge: "Robust documentation & sandbox testing",
     icon: (
       <>
