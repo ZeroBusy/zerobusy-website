@@ -19,21 +19,21 @@ const linkGroups = [
   {
     title: "QUICK LINKS",
     links: [
-      { label: "Home", href: "#overview" },
-      { label: "About ZeroBusy", href: "#solutions" },
-      { label: "Client Results", href: "#proof" },
-      { label: "Integration Ecosystem", href: "#stack" },
-      { label: "Founder Reviews", href: "#proof" },
+      { label: "Home", href: "/" },
+      { label: "About ZeroBusy", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Contact", href: "/contact" },
+      { label: "Client Results", href: "/#proof" },
     ],
   },
   {
     title: "SERVICES",
     links: [
-      { label: "Workflow Architecture", href: "#solutions" },
-      { label: "Lead Gen Pipeline AI", href: "#solutions" },
-      { label: "Customer Ops Agents", href: "#solutions" },
-      { label: "Custom LLM Fine-Tuning", href: "#solutions" },
-      { label: "Internal Tools & Zapier", href: "#stack" },
+      { label: "Workflow Architecture", href: "/services#services-list" },
+      { label: "Lead Gen Pipeline AI", href: "/services#services-list" },
+      { label: "Customer Ops Agents", href: "/services#services-list" },
+      { label: "Custom LLM Fine-Tuning", href: "/services#services-list" },
+      { label: "Internal Tools & Zapier", href: "/services#services-list" },
     ],
   },
 ];
@@ -92,7 +92,12 @@ export default function Footer() {
             <h4 className="mb-4 text-label-sm text-white/50">GET STARTED</h4>
             <div className="rounded-lg border border-white/10 bg-white/5 p-5">
               <p className="mb-4 text-body-md text-white/80">Ready to reclaim 20+ operational hours every week?</p>
-              <a href="#cta" className="btn btn-accent w-full rounded-base">
+              <a
+                href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-accent w-full rounded-base"
+              >
                 Schedule Call
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <path d="M9 6l6 6-6 6" />

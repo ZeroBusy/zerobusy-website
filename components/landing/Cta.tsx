@@ -22,8 +22,7 @@ export default function Cta() {
           Book a free consultation call and discover how ZeroBusy can transform your day-to-day operations and free
           your team to grow.
         </p>
-        {/* TODO: link to the real booking page (e.g. Cal.com) instead of this anchor. */}
-        <a href="#cta" className="btn btn-inverse mt-8 rounded-full">
+        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR" target="_blank" rel="noopener noreferrer" className="btn btn-inverse mt-8 rounded-full">
           Book Your Free Call
           <ArrowRight size={16} />
         </a>

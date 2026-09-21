@@ -17,17 +17,7 @@ const operators = [
   {
     name: "Khatwani Group",
     icon: <path d="M4 21V5h9v16M13 10h7v11M7 9h3M7 13h3M7 17h3M16 14h1M16 17h1" />,
-  },
-  { name: "Vaayu Realty", icon: <path d="M5 21V8l7-4 7 4v13M9 21v-6h6v6" /> },
-  {
-    name: "Key Getaways",
-    icon: (
-      <>
-        <circle cx="8" cy="12" r="4" />
-        <path d="M12 12h9M17 12v4" />
-      </>
-    ),
-  },
+  }
 ];
 
 // TODO: replace gradient placeholders with real client avatars.
@@ -64,7 +54,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" className="btn btn-primary rounded-base">
+            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR" target="_blank" rel="noopener noreferrer" className="btn btn-primary rounded-base">
               Book 30-Min Operational Audit
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <circle cx="12" cy="12" r="9" />
