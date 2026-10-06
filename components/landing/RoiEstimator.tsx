@@ -124,8 +124,8 @@ export default function RoiEstimator() {
           <CheckCircle />
         </span>
         <span>
-          <span className="block font-display text-label-md text-ink">100% Deterministic AI</span>
-          <span className="block text-body-sm text-ink-muted">Zero hallucinations guarantee</span>
+          <span className="block font-display text-label-md text-ink">Deterministic by Design</span>
+          <span className="block text-body-sm text-ink-muted">Rule-bound systems, AI-assisted</span>
         </span>
       </div>
     </div>

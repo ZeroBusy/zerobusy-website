@@ -1,17 +1,20 @@
-// TODO: point the social icons at the real ZeroBusy profiles.
+import Logo from "./Logo";
+
 const socials = [
-  { label: "X", path: "M3 3h5l4.2 6L17 3h4l-7 9.2L21.5 21h-5l-4.6-6.5L6.5 21H2.5l7.4-9.6L3 3Z" },
   {
     label: "LinkedIn",
+    href: "https://www.linkedin.com/company/zerobusy",
     path: "M4.5 9h3v11h-3V9Zm1.5-5a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM10 9h2.9v1.5c.6-1 1.8-1.8 3.4-1.8 2.6 0 3.7 1.7 3.7 4.6V20h-3v-6c0-1.6-.6-2.4-1.9-2.4-1.1 0-1.9.7-1.9 2.4v6h-3V9Z",
   },
   {
-    label: "YouTube",
-    path: "M21.4 7.2c-.2-1-.9-1.8-1.9-2C17.7 4.8 12 4.8 12 4.8s-5.7 0-7.5.4c-1 .2-1.7 1-1.9 2C2.2 9 2.2 12 2.2 12s0 3 .4 4.8c.2 1 .9 1.8 1.9 2 1.8.4 7.5.4 7.5.4s5.7 0 7.5-.4c1-.2 1.7-1 1.9-2 .4-1.8.4-4.8.4-4.8s0-3-.4-4.8ZM10 15.3V8.7L15.5 12 10 15.3Z",
+    label: "Instagram",
+    href: "https://instagram.com/zerobusy.ai",
+    path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z",
   },
   {
-    label: "Discord",
-    path: "M19 6.3A15 15 0 0 0 15.4 5l-.4.8a11 11 0 0 1 3.1 1.4 11.6 11.6 0 0 0-9.6-.3l.4-1.1A15 15 0 0 0 5 6.3C2.6 10 2 13.7 2.3 17.3A15 15 0 0 0 7 19l.8-1.3c-.8-.3-1.5-.7-2.2-1.2l.5-.4c3.7 1.7 7.9 1.7 11.6 0l.5.4c-.7.5-1.4.9-2.2 1.2l.8 1.3a15 15 0 0 0 4.7-1.7c.4-4.2-.6-7.9-2.5-11ZM9 14.6c-.9 0-1.6-.8-1.6-1.8S8.1 11 9 11s1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6 0c-.9 0-1.6-.8-1.6-1.8S14.1 11 15 11s1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z",
+    label: "X",
+    href: "https://x.com/zerobusy",
+    path: "M3 3h5l4.2 6L17 3h4l-7 9.2L21.5 21h-5l-4.6-6.5L6.5 21H2.5l7.4-9.6L3 3Z",
   },
 ];
 
@@ -48,12 +51,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="grid size-8 place-items-center rounded-base bg-linear-135 from-primary to-secondary font-display text-label-md font-extrabold">
-                Z
-              </span>
-              <span className="font-display text-headline-sm font-extrabold">ZeroBusy</span>
-            </div>
+            <Logo variant="dark" />
             <p className="mt-4 max-w-xs text-body-md text-pretty text-white/60">
               Streamline. Automate. Scale. We help digital businesses save time through intelligent AI automation.
             </p>
@@ -61,7 +59,9 @@ export default function Footer() {
               {socials.map((social) => (
                 <a
                   key={social.label}
-                  href="#overview"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="grid size-10 place-items-center rounded-md border border-white/10 text-white/70 transition duration-200 hover:-translate-y-0.5 hover:border-secondary/40 hover:text-white"
                 >

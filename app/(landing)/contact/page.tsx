@@ -6,6 +6,14 @@ import Link from "next/link";
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
+/**
+ * Where contact submissions are POSTed as JSON.
+ * Set NEXT_PUBLIC_CONTACT_ENDPOINT in the Vercel project env (e.g. an n8n /
+ * Make webhook URL). Without it the form reports an error rather than
+ * silently pretending the message was sent.
+ */
+const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+
 /* ===== FAQ Data ===== */
 const faqs = [
   {
@@ -35,7 +43,7 @@ const metrics = [
   { value: "24h", label: "Guaranteed Response", sub: "Direct senior engineering reply", accent: true },
   { value: "2–6w", label: "Deployment Time", sub: "Rapid production execution", accent: false },
   { value: "1,000+", label: "Tool Integrations", sub: "APIs, Webhooks & SDKs", accent: true },
-  { value: "99.9%", label: "Pipeline Reliability", sub: "Deterministic AI workflows", accent: false },
+  { value: "99.9%", label: "Pipeline Reliability", sub: "Deterministic, AI-assisted workflows", accent: false },
 ];
 
 /* ===== Icons ===== */
@@ -159,18 +167,43 @@ const BoltIcon = () => (
 /* ===== Page Component ===== */
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [copied, setCopied] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    if (!CONTACT_ENDPOINT) {
+      console.error("NEXT_PUBLIC_CONTACT_ENDPOINT is not set — submission was not sent.");
+      setFormStatus("error");
+      return;
+    }
+
     setFormStatus("sending");
-    // Simulate network call
-    setTimeout(() => {
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          submittedAt: new Date().toISOString(),
+          source: "zerobusy.com/contact",
+        }),
+      });
+
+      if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+
       setFormStatus("sent");
-      (e.target as HTMLFormElement).reset();
-      setTimeout(() => setFormStatus("idle"), 4000);
-    }, 800);
+      form.reset();
+      setTimeout(() => setFormStatus("idle"), 6000);
+    } catch (err) {
+      console.error("Contact form submission failed:", err);
+      setFormStatus("error");
+    }
   }
 
   function handleCopyEmail() {
@@ -335,7 +368,7 @@ export default function ContactPage() {
             <div className="flex flex-col justify-between gap-3 pt-1 sm:flex-row sm:items-center">
               <button
                 type="submit"
-                disabled={formStatus !== "idle"}
+                disabled={formStatus === "sending" || formStatus === "sent"}
                 className="btn btn-primary rounded-lg shadow-[0_4px_16px_rgba(0,128,255,0.28)] hover:shadow-[0_6px_20px_rgba(0,128,255,0.36)] disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {formStatus === "sending" ? (
@@ -366,6 +399,17 @@ export default function ContactPage() {
               <div className="mt-1 flex items-center gap-2 rounded-lg bg-ice p-3 text-body-sm text-primary">
                 <CheckCircle />
                 <span>Message recorded! Our senior automation architect will review and respond within 24 hours.</span>
+              </div>
+            )}
+
+            {/* Error Feedback */}
+            {formStatus === "error" && (
+              <div className="mt-1 rounded-lg bg-red-50 p-3 text-body-sm text-red-700" role="alert">
+                Something went wrong sending your message. Please try again, or email us directly at{" "}
+                <a href="mailto:automate@zerobusy.com" className="font-semibold underline">
+                  automate@zerobusy.com
+                </a>
+                .
               </div>
             )}
           </form>
@@ -549,7 +593,7 @@ export default function ContactPage() {
             </h2>
             <p className="mt-2 text-body-lg text-white/90">
               Book a 30-minute free operational audit with our AI engineers. We&apos;ll map your automations and build a
-              deterministic roadmap to eliminate busywork.
+              clear roadmap to eliminate busywork.
             </p>
           </div>
 

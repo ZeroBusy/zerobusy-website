@@ -1,24 +1,6 @@
+import ClientMarquee from "./ClientMarquee";
 import Reveal from "./Reveal";
 import RoiEstimator from "./RoiEstimator";
-
-// TODO: replace placeholder icons with the real client logos.
-const operators = [
-  { name: "Hype Fly", icon: <path d="M4 16l6-8 4 5 6-8" /> },
-  {
-    name: "Mumbai Retina",
-    icon: (
-      <>
-        <ellipse cx="12" cy="12" rx="9.5" ry="6" />
-        <circle cx="12" cy="12" r="2.2" />
-      </>
-    ),
-  },
-  { name: "Sneakinn", icon: <path d="M3 12h13M12 7l5 5-5 5" /> },
-  {
-    name: "Khatwani Group",
-    icon: <path d="M4 21V5h9v16M13 10h7v11M7 9h3M7 13h3M7 17h3M16 14h1M16 17h1" />,
-  }
-];
 
 // TODO: replace gradient placeholders with real client avatars.
 const avatarGradients = [
@@ -49,8 +31,8 @@ export default function Hero() {
             Scale.
           </h1>
           <p className="mt-6 max-w-xl text-body-md text-pretty text-ink-soft md:text-body-lg">
-            We architect autonomous digital workflows and deterministic AI infrastructure. Eliminate repetitive
-            manual tasks and reclaim thousands of executive hours every quarter.
+            We architect autonomous digital workflows on deterministic, AI-assisted infrastructure. Eliminate
+            repetitive manual tasks and reclaim thousands of executive hours every quarter.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -98,24 +80,7 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      <div className="flex flex-wrap border-t border-line bg-white/70">
-        <div className="flex items-center px-6 py-5 font-display text-label-sm text-ink-muted md:px-8">
-          TRUSTED OPERATORS
-        </div>
-        <div className="flex flex-1 flex-wrap border-l border-line">
-          {operators.map((operator) => (
-            <span
-              key={operator.name}
-              className="flex flex-[1_1_140px] items-center justify-center gap-2 border-r border-line px-3 py-5 font-display text-label-md text-ink-soft transition-colors last:border-r-0 hover:bg-ice hover:text-primary"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-primary" aria-hidden>
-                {operator.icon}
-              </svg>
-              {operator.name}
-            </span>
-          ))}
-        </div>
-      </div>
+      <ClientMarquee />
     </section>
   );
 }

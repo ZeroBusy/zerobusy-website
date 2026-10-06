@@ -304,8 +304,8 @@ export default function AboutPage() {
                     </svg>
                     100%
                   </span>
-                  <span className="block font-display text-label-sm font-semibold text-ink">Deterministic AI</span>
-                  <span className="block text-[11px] text-ink-muted">Zero hallucinations</span>
+                  <span className="block font-display text-label-sm font-semibold text-ink">Deterministic Core</span>
+                  <span className="block text-[11px] text-ink-muted">AI-assisted, rule-bound</span>
                 </div>
 
                 <div className="rounded-lg bg-white p-3 shadow-xs">

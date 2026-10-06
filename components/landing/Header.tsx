@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "./icons";
+import Logo from "./Logo";
 
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
@@ -20,15 +21,8 @@ export default function Header() {
   return (
     // ===== Start: Header =====
     <header className="sticky top-3 z-60 mt-4 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-line/70 bg-white/85 py-2 pr-2 pl-4 shadow-card backdrop-blur-md backdrop-saturate-180">
-      <Link href="/" className="flex items-center gap-2.5">
-        <span className="grid size-8 place-items-center rounded-base bg-linear-135 from-primary to-secondary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden>
-            <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
-          </svg>
-        </span>
-        <span className="font-display text-headline-sm font-extrabold text-ink">
-          ZERO<span className="text-primary">BUSY</span>
-        </span>
+      <Link href="/" className="flex items-center" aria-label="ZeroBusy home">
+        <Logo />
       </Link>
 
       <nav className="order-last flex w-full gap-1 overflow-x-auto rounded-md bg-canvas p-1 md:order-none md:w-auto">

@@ -26,7 +26,7 @@ const processSteps = [
     num: "02",
     phase: "PHASE: BLUEPRINT",
     title: "Strategy Development",
-    description: "We architect a custom deterministic automation roadmap tailored to your existing software stack.",
+    description: "We architect a custom automation roadmap tailored to your existing software stack.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                 AI Agents
               </h3>
               <p className="mt-1 text-body-md text-ink-soft">
-                Intelligent AI agents that work 24/7 to handle complex deterministic business tasks.
+                Intelligent AI agents that work 24/7 to handle complex business tasks inside rule-bound workflows.
               </p>
 
               {/* Agent Terminal Preview */}
@@ -321,7 +321,7 @@ export default function ServicesPage() {
                     <span className="size-1.5 rounded-full bg-primary" /> Instant Response Times
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <span className="size-1.5 rounded-full bg-primary" /> Deterministic Quality
+                    <span className="size-1.5 rounded-full bg-primary" /> Deterministic Execution
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="size-1.5 rounded-full bg-primary" /> Multilingual Capability

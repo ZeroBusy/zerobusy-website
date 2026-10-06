@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "ZeroBusy — Streamline. Automate. Scale.",
   description:
-    "We architect autonomous digital workflows and deterministic AI infrastructure that eliminate repetitive manual tasks.",
+    "We architect autonomous digital workflows on deterministic, AI-assisted infrastructure that eliminates repetitive manual tasks.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

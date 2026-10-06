@@ -203,3 +203,57 @@
     cursor: grab;
   }
 }
+
+/* ===== Brand logo clock animation ===== */
+@keyframes zb-clock-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.zb-clock-hour,
+.zb-clock-minute {
+  transform-origin: 12px 12px;
+}
+
+.zb-clock-hour {
+  animation: zb-clock-spin 4s linear infinite;
+}
+
+.zb-clock-minute {
+  animation: zb-clock-spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zb-clock-hour,
+  .zb-clock-minute {
+    animation: none;
+  }
+}
+
+/* ===== Client logo marquee ===== */
+@keyframes zb-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.zb-marquee {
+  animation: zb-marquee-scroll 45s linear infinite;
+}
+
+.zb-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zb-marquee {
+    animation: none;
+  }
+}
