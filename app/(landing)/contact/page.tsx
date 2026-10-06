@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import FitCheck from "@/components/landing/FitCheck";
 
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
@@ -528,6 +529,8 @@ export default function ContactPage() {
           </div>
         ))}
       </section>
+
+      <FitCheck />
 
       {/* ===== FAQ ACCORDION ===== */}
       <section className="rounded-xl border border-line bg-white px-6 py-16 md:px-10">

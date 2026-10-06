@@ -1,4 +1,5 @@
 import Cta from "@/components/landing/Cta";
+import FitCheck from "@/components/landing/FitCheck";
 import Hero from "@/components/landing/Hero";
 import Journey from "@/components/landing/Journey";
 import Proof from "@/components/landing/Proof";
@@ -13,6 +14,7 @@ export default function LandingPage() {
       <Journey />
       <Proof />
       <TechStack />
+      <FitCheck />
       <Cta />
     </>
   );
