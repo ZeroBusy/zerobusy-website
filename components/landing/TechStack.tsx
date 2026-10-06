@@ -5,7 +5,7 @@ import { useState } from "react";
 import SectionHeader from "./SectionHeader";
 
 const tools = [
-  { name: "n8n", logo: "/logos/n8n.svg", note: "Self-hostable workflow engine for complex, branching automations with full code-level control." },
+  { name: "n8n", logo: "/logos/n8n.svg", note: "The engine that connects your apps and runs the work in the background. We can set it up on your own servers so your data stays yours." },
   { name: "Make", logo: "/logos/make.svg", note: "Visual multi-branch scenarios for operations that need conditional routing." },
   { name: "Zapier", logo: "/logos/zapier.svg", note: "Fast glue for the long tail of app-to-app triggers your team already relies on." },
   { name: "Activepieces", logo: "/logos/activepieces.png", note: "Open-source automation for teams that want flows they can own and extend." },
@@ -70,9 +70,9 @@ export default function TechStack() {
     <section id="stack" className="mt-6 overflow-hidden py-16 lg:py-24">
       <div className="px-6">
         <SectionHeader
-          eyebrow="INTEGRATION ECOSYSTEM"
-          title="Our Technology Stack"
-          description="Built on a foundation of best-in-class, scalable, and secure technologies to deliver a robust automation platform."
+          eyebrow="OUR TOOLKIT"
+          title="The tools we build with"
+          description="We work inside the software you already use. When we need to add something, these are the tools we trust. Knowing them well is how we build fast."
         />
       </div>
 

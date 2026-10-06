@@ -1,7 +1,10 @@
 import Reveal from "./Reveal";
 import { ArrowRight, Check } from "./icons";
 
-const perks = ["No obligations", "Immediate roadmap", "Fast turnaround"];
+const perks = [
+  "No pressure to hire us",
+  "You leave with a clear list of what to fix first",
+];
 
 export default function Cta() {
   return (
@@ -13,17 +16,17 @@ export default function Cta() {
       >
         <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 font-display text-label-sm">
           <span className="size-2 rounded-full bg-success" />
-          30-MINUTE FREE OPERATIONAL AUDIT
+          FREE 30-MINUTE CALL
         </span>
         <h2 className="mx-auto mt-6 max-w-3xl text-headline-xl-mobile md:text-headline-xl">
-          Ready to Automate Your Business?
+          What is the one job you hate doing?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-body-md text-white/85 md:text-body-lg">
-          Book a free consultation call and discover how ZeroBusy can transform your day-to-day operations and free
-          your team to grow.
+          Tell us. On the call we will look at how you work now and say what we would automate first. If we are not
+          the right fit, we will tell you.
         </p>
         <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR" target="_blank" rel="noopener noreferrer" className="btn btn-inverse mt-8 rounded-full">
-          Book Your Free Call
+          Book a free 30-minute call
           <ArrowRight size={16} />
         </a>
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-6 font-display text-label-md text-white/90">

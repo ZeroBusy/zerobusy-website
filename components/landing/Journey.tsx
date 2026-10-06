@@ -5,10 +5,10 @@ import SectionHeader from "./SectionHeader";
 
 const steps = [
   {
-    title: "Audit",
+    title: "We look at how you work",
     description:
-      "We begin with a deep operational audit across your workflows—mapping data silos, uncovering manual handoffs, and identifying high-friction bottlenecks that drain executive time and budget.",
-    badge: "Operational & Tech Stack Audit",
+      "We sit with you and your team and map where the time actually goes — the spreadsheets, the inbox, the handoffs, the things everyone has stopped noticing because that is just how it is done.",
+    badge: "We map your day",
     icon: (
       <>
         <circle cx="11" cy="11" r="6.5" />
@@ -19,10 +19,10 @@ const steps = [
     ),
   },
   {
-    title: "Prioritise",
+    title: "We pick what to fix first",
     description:
-      "We evaluate and score automation opportunities using a strategic ROI and feasibility matrix, establishing a high-impact roadmap that tackles high-leverage bottlenecks first.",
-    badge: "High-ROI Opportunity Matrix",
+      "Not everything is worth automating. We rank what we found by how much time it gives back and how fast we can ship it, then start with the one or two that matter most. You see the list before we touch anything.",
+    badge: "Biggest win first",
     icon: (
       <>
         <path d="M4 6h16" />
@@ -32,10 +32,10 @@ const steps = [
     ),
   },
   {
-    title: "Build",
+    title: "We build it",
     description:
-      "Our engineering team architects custom AI agents, deterministic workflows, and API integrations directly inside your software ecosystem—built for resilience, speed, and zero disruption.",
-    badge: "Custom AI & API Infrastructure",
+      "We build it inside the tools you already use, so nobody has to learn a new system. You get it written down in plain language too, so you are never stuck with something only we understand.",
+    badge: "Built into your tools",
     icon: (
       <>
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -46,10 +46,10 @@ const steps = [
     ),
   },
   {
-    title: "Deploy & Monitor",
+    title: "We test it, then switch it on",
     description:
-      "Workflows are rigorously stress-tested in isolated staging environments before going live. We deploy with real-time error alerts, fallback mechanisms, and 24/7 telemetry monitoring.",
-    badge: "Zero-Downtime Sandbox & Telemetry",
+      "It gets tested away from your live data before anyone on your team touches it. Once it is running, we watch it — so if something breaks, we usually know before you do.",
+    badge: "Tested before it goes live",
     icon: (
       <>
         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -57,10 +57,10 @@ const steps = [
     ),
   },
   {
-    title: "Track & Optimise Iteratively to Optimise",
+    title: "It runs. We keep it running.",
     description:
-      "Autonomy is continuous. We analyze real-world telemetry, catch emerging edge cases, and refine workflows iteratively to optimise speed, expand capabilities, and scale seamlessly with your growth.",
-    badge: "Iterative Refinement & Scaling",
+      "Your team stops doing the manual work. We fix what breaks, handle the odd cases that turn up once it meets the real world, and build the next thing when you are ready for it.",
+    badge: "We keep it running",
     icon: (
       <>
         <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -153,15 +153,15 @@ export default function Journey() {
     // ===== Start: Journey section =====
     <section className="mt-6 overflow-hidden rounded-xl bg-ice px-6 py-16 md:px-10 lg:py-24">
       <SectionHeader
-        eyebrow="THE ZEROBUSY JOURNEY"
+        eyebrow="HOW IT WORKS"
         title={
           <>
-            We Sell Autonomy,
+            We start small,
             <br />
-            <span className="text-primary">Not Just Automations</span>
+            <span className="text-primary">then build from there</span>
           </>
         }
-        description="We empower businesses to operate independently with systems that make growth sustainable and predictable."
+        description="No ripping out what you already have. We find the job eating the most time, fix that one, and go from there."
       />
 
       <div ref={timelineRef} className="relative mx-auto mt-12 max-w-4xl lg:mt-16">
@@ -250,6 +250,25 @@ export default function Journey() {
             </div>
           );
         })}
+      </div>
+
+      {/* Replaces the old "deterministic" badge - the reliability point in plain words. */}
+      <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-line bg-white p-6 shadow-card md:p-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
+          <span className="grid size-11 shrink-0 place-items-center rounded-md bg-primary/10 text-primary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </span>
+          <div>
+            <h3 className="text-headline-md text-ink">Careful with AI where it counts</h3>
+            <p className="mt-2 max-w-2xl text-body-md text-pretty text-ink-soft">
+              For work like money or legal papers, a wrong answer costs real money. So we use AI in a controlled way
+              there. It follows set rules, does the same thing every time, and a person approves what matters. Where a
+              mistake is cheap, we let it move faster.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -3,10 +3,15 @@ import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import { Check } from "./icons";
 
+/**
+ * Illustrative sketch of a lead flow. Intentionally carries no metrics,
+ * timings or named people - it shows the shape of the work, not results we
+ * cannot source.
+ */
 const workflowSteps = [
   {
-    title: "New lead captured",
-    meta: "form.submit · Instant",
+    title: "New lead comes in",
+    meta: "Website form, WhatsApp, or a call",
     iconClass: "bg-primary/10 text-primary",
     icon: (
       <>
@@ -16,14 +21,14 @@ const workflowSteps = [
     ),
   },
   {
-    title: "AI score & enrichment",
-    meta: "94 / 100 · High Intent",
+    title: "Gets answered straight away",
+    meta: "Reply goes out, details filled in",
     iconClass: "bg-secondary/10 text-tertiary",
     icon: <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="currentColor" stroke="none" />,
   },
   {
-    title: "Assign rep automatically",
-    meta: "→ Sarah Jenkins (Tier 1)",
+    title: "Lands with the right person",
+    meta: "Assigned to a sales rep",
     iconClass: "bg-warning/10 text-warning",
     icon: (
       <>
@@ -33,8 +38,8 @@ const workflowSteps = [
     ),
   },
   {
-    title: "Slack alert & calendar invite",
-    meta: "#sales-velocity · Cal.com sent",
+    title: "They get a nudge to follow up",
+    meta: "Alert and calendar invite",
     iconClass: "bg-primary/10 text-primary",
     icon: (
       <>
@@ -45,51 +50,23 @@ const workflowSteps = [
   },
 ];
 
-const pipelineStages = [
-  { label: "LEAD", value: 142, note: "Inbound", noteClass: "text-ink-muted" },
-  { label: "PROPOSAL", value: 29, note: "Active", noteClass: "text-warning" },
-  { label: "WON", value: 18, note: "Completed", noteClass: "text-primary" },
+const dashboardRows = [
+  { label: "New enquiries", note: "Who has not been called yet" },
+  { label: "Deals in progress", note: "What stage each one is at" },
+  { label: "Won this month", note: "And who closed it" },
 ];
 
-const storeStats = [
-  {
-    value: "0.8s",
-    label: "Inventory Sync",
-    note: "Real-time multi-store",
-    noteClass: "text-success",
-    iconClass: "bg-primary/10 text-primary",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.6" />
-        <path d="M12 7.6V12l3.2 2" />
-      </>
-    ),
-  },
-  {
-    value: "84%",
-    label: "Order Returns AI",
-    note: "Fully automated triage",
-    noteClass: "text-primary",
-    iconClass: "bg-success/10 text-success",
-    icon: (
-      <>
-        <path d="M3 17l6-6 4 4 8-8" />
-        <path d="M21 7v5h-5" />
-      </>
-    ),
-  },
-  {
-    value: "120+",
-    label: "Hours Saved / Mo",
-    note: "Per store operator",
-    noteClass: "text-primary",
-    iconClass: "bg-success/10 text-success",
-    icon: <path d="M5 13l4.5 4.5L19 7" />,
-  },
+const agentJobs = [
+  "Answers common customer questions",
+  "Reads documents and pulls out what matters",
+  "Drafts replies for someone to approve",
 ];
 
-const keyword = "text-secondary";
-const fn = "text-primary-light";
+const boringJobs = [
+  "Listing products in bulk",
+  "Keeping two apps in step",
+  "Matching payments to orders",
+];
 
 type SolutionCardProps = {
   title: string;
@@ -116,24 +93,40 @@ function SolutionCard({ title, description, icon, iconClass, children }: Solutio
   );
 }
 
+function PlainList({ items }: { items: string[] }) {
+  return (
+    <ul className="grid gap-2 rounded-lg bg-canvas p-4 md:p-5">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="flex items-center gap-3 rounded-base border border-line bg-white px-3.5 py-3.5 text-body-md text-ink-soft"
+        >
+          <Check className="shrink-0 text-success" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Solutions() {
   return (
     // ===== Start: Solutions (Core Engine) section =====
     <section id="solutions" className="mt-6 rounded-xl bg-canvas px-6 py-16 md:px-10 lg:py-24">
       <SectionHeader
-        eyebrow="CORE ENGINE"
+        eyebrow="WHAT WE BUILD"
         title={
           <>
-            AI Solutions That Take Your Business to the <span className="text-primary">Next Level</span>
+            What we <span className="text-primary">build</span>
           </>
         }
-        description="We design, develop, and implement automation tools that help you work smarter, not harder."
+        description="Every business is a bit different, so we build around yours. Here are the things we build most."
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         <SolutionCard
-          title="Workflow Automation"
-          description="Automate repetitive tasks and seamlessly orchestrate multi-app workflows. Eliminate manual copying, routing, and data entry."
+          title="Systems that find and handle leads"
+          description="Every lead gets a fast reply and a follow-up. Nothing sits in an inbox. Your team only steps in when a person is needed."
           iconClass="bg-primary/10 text-primary"
           icon={<path d="M20 11a8 8 0 0 0-14-4.5M4 13a8 8 0 0 0 14 4.5M6 3v4h4M18 21v-4h-4" />}
         >
@@ -154,11 +147,11 @@ export default function Solutions() {
                   </span>
                   <span className="flex-1">
                     <span className="block font-display text-label-md text-ink">{step.title}</span>
-                    <span className={`block font-mono text-xs ${isLast ? "text-primary" : "text-ink-muted"}`}>
+                    <span className={`block text-body-sm ${isLast ? "text-primary" : "text-ink-muted"}`}>
                       {step.meta}
                     </span>
                   </span>
-                  <Check className="text-success" />
+                  <Check className="shrink-0 text-success" />
                 </li>
               );
             })}
@@ -166,8 +159,8 @@ export default function Solutions() {
         </SolutionCard>
 
         <SolutionCard
-          title="Autonomous AI Agents"
-          description="Deploy custom agents that autonomously research, draft responses, and make executive calls 24/7."
+          title="AI helpers that do real work"
+          description="Chatbots that answer customers. Agents that research, draft and file. We build them to do the same job the same way each time, with a person checking what matters."
           iconClass="bg-primary/10 text-primary"
           icon={
             <>
@@ -176,40 +169,12 @@ export default function Solutions() {
             </>
           }
         >
-          <div className="rounded-lg bg-navy p-4">
-            <div className="flex items-center justify-between gap-2.5">
-              <span className="flex items-center gap-2.5">
-                <span className="flex gap-1.5">
-                  <i className="block size-2 rounded-full bg-white/20" />
-                  <i className="block size-2 rounded-full bg-white/20" />
-                  <i className="block size-2 rounded-full bg-white/20" />
-                </span>
-                <span className="font-mono text-xs text-white/70">agent.worker.ts</span>
-              </span>
-              <span className="rounded-full border border-secondary/40 px-2.5 py-0.5 font-mono text-xs text-secondary">
-                EXEC 24/7
-              </span>
-            </div>
-            <pre className="mt-4 font-mono text-code-sm whitespace-pre-wrap text-white/80">
-              <span className={keyword}>export async function</span> <span className={fn}>runAgent</span>(lead) {"{\n  "}
-              <span className={keyword}>const</span> research = <span className={keyword}>await</span> ai.<span className={fn}>deepResearch</span>(lead);{"\n  "}
-              <span className={keyword}>const</span> draft = <span className={keyword}>await</span> ai.<span className={fn}>draftTailoredPitch</span>(research);{"\n  "}
-              <span className={keyword}>return</span> dispatcher.<span className={fn}>send</span>({"{"} lead, draft, status:{"\n    "}
-              <span className="text-success">{"'APPROVED'"}</span> {"});\n}"}
-            </pre>
-            <div className="mt-4 flex items-center justify-between gap-2.5 rounded-base bg-navy-deep px-3 py-2.5 font-mono text-xs">
-              <span className="flex items-center gap-2 text-white/80">
-                <span className="size-2 animate-pulse-dot rounded-full bg-success" />
-                Agent status: active
-              </span>
-              <span className="text-secondary">1,492 tasks run</span>
-            </div>
-          </div>
+          <PlainList items={agentJobs} />
         </SolutionCard>
 
         <SolutionCard
-          title="CRM & Lead Systems"
-          description="Keep customer stages, pipeline metrics, and outbound communications unified without dropped leads."
+          title="One place to see everything"
+          description="Pipeline trackers and dashboards that show where every deal stands and who is working on what. Fewer tabs. Fewer screens. You can check the business from your phone."
           iconClass="bg-secondary/10 text-tertiary"
           icon={
             <>
@@ -219,39 +184,22 @@ export default function Solutions() {
             </>
           }
         >
-          <div className="rounded-lg bg-canvas p-4 md:p-5">
-            <div className="flex items-center justify-between gap-3 rounded-base border border-line bg-white p-4">
-              <span>
-                <span className="block font-display text-label-sm text-ink-muted">CLOSED REVENUE</span>
-                <span className="mt-1 block font-display text-headline-lg text-ink">$25.6k</span>
+          <div className="grid gap-2 rounded-lg bg-canvas p-4 md:p-5">
+            {dashboardRows.map((row) => (
+              <span
+                key={row.label}
+                className="flex items-center justify-between gap-3 rounded-base border border-line bg-white px-4 py-3.5"
+              >
+                <span className="font-display text-label-md text-ink">{row.label}</span>
+                <span className="text-right text-body-sm text-ink-muted">{row.note}</span>
               </span>
-              <span className="rounded-full bg-success/10 px-2.5 py-1 font-display text-label-sm text-success">↑ +38%</span>
-            </div>
-            <div className="mt-2 grid grid-cols-3 gap-2">
-              {pipelineStages.map((stage, i) => {
-                const isWon = i === pipelineStages.length - 1;
-                return (
-                  <span
-                    key={stage.label}
-                    className={`rounded-base border px-2 py-3 text-center ${
-                      isWon ? "border-primary/30 bg-ice text-primary" : "border-line bg-white"
-                    }`}
-                  >
-                    <span className={`block font-display text-label-sm ${isWon ? "" : "text-ink-muted"}`}>
-                      {stage.label}
-                    </span>
-                    <span className="mt-1 block font-display text-headline-sm font-bold">{stage.value}</span>
-                    <span className={`block text-body-sm ${stage.noteClass}`}>{stage.note}</span>
-                  </span>
-                );
-              })}
-            </div>
+            ))}
           </div>
         </SolutionCard>
 
         <SolutionCard
-          title="Ecommerce Automation"
-          description="Synchronize stock, instantly update SKU catalog changes, auto-handle return queries, and execute omni-channel tracking."
+          title="Tools for the boring jobs"
+          description="Bulk product listings, syncing data between your apps, matching up payments and orders, financial analysis. The work your team does by hand today."
           iconClass="bg-success/10 text-success"
           icon={
             <>
@@ -260,20 +208,7 @@ export default function Solutions() {
             </>
           }
         >
-          <div className="grid grid-cols-3 gap-2 rounded-lg bg-canvas p-4 md:p-5">
-            {storeStats.map((stat) => (
-              <span key={stat.label} className="rounded-base border border-line bg-white p-3">
-                <span className={`grid size-7 place-items-center rounded-base ${stat.iconClass}`}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
-                    {stat.icon}
-                  </svg>
-                </span>
-                <span className="mt-3 block font-display text-headline-md text-ink">{stat.value}</span>
-                <span className="block font-display text-label-sm text-ink-soft">{stat.label}</span>
-                <span className={`mt-2 block border-t border-line pt-2 text-body-sm ${stat.noteClass}`}>{stat.note}</span>
-              </span>
-            ))}
-          </div>
+          <PlainList items={boringJobs} />
         </SolutionCard>
       </div>
     </section>

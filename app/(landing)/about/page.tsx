@@ -221,7 +221,7 @@ export default function AboutPage() {
       <section id="our-story" className="rounded-xl border border-line bg-white px-6 py-16 md:px-10 lg:py-24">
         <div className="grid items-stretch gap-12 lg:grid-cols-12">
           {/* Left Column: Narrative & Founder Quote */}
-          <div className="flex flex-col justify-between lg:col-span-6">
+          <div className="flex min-w-0 flex-col justify-between lg:col-span-6">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-ice px-3 py-1 font-display text-label-sm font-semibold tracking-wider text-primary uppercase">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -271,7 +271,7 @@ export default function AboutPage() {
           </div>
 
           {/* Right Column: Mission Card + Workflow Visualizer */}
-          <div className="flex flex-col gap-6 lg:col-span-6">
+          <div className="flex min-w-0 flex-col gap-6 lg:col-span-6">
             {/* Elevated Mission Card */}
             <div className="card relative overflow-hidden p-6 md:p-8">
               <div className="pointer-events-none absolute -top-8 -right-8 h-36 w-36 rounded-full bg-ice blur-2xl" />
@@ -335,14 +335,14 @@ export default function AboutPage() {
 
             {/* High-Craft Workflow Node Visualizer */}
             <div className="flex flex-col justify-between rounded-2xl bg-navy p-5 text-white shadow-card md:p-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="size-2.5 rounded-full bg-red-500" />
-                  <span className="size-2.5 rounded-full bg-amber-400" />
-                  <span className="size-2.5 rounded-full bg-emerald-400" />
-                  <span className="ml-2 font-mono text-code-sm text-white/50">pipeline_execution_live.sh</span>
+              <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3">
+                <div className="flex min-w-0 items-center gap-2">
+                  <span className="size-2.5 shrink-0 rounded-full bg-red-500" />
+                  <span className="size-2.5 shrink-0 rounded-full bg-amber-400" />
+                  <span className="size-2.5 shrink-0 rounded-full bg-emerald-400" />
+                  <span className="ml-2 truncate font-mono text-code-sm text-white/50">pipeline_execution_live.sh</span>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-0.5 font-mono text-[11px] text-emerald-400">
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-0.5 font-mono text-[11px] text-emerald-400">
                   <span className="size-1.5 animate-pulse rounded-full bg-emerald-400" />
                   ACTIVE NODE
                 </span>
@@ -351,7 +351,7 @@ export default function AboutPage() {
               {/* 3 Pipeline Nodes */}
               <div className="flex flex-col items-center justify-between gap-2.5 py-4 sm:flex-row">
                 {/* Node 1 */}
-                <div className="flex w-full flex-1 items-center gap-3 rounded-lg border border-white/5 bg-white/5 p-3">
+                <div className="flex w-full min-w-0 flex-1 items-center gap-3 rounded-lg border border-white/5 bg-white/5 p-3">
                   <span className="grid size-8 shrink-0 place-items-center rounded-md bg-white/10 text-secondary">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                       <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
@@ -369,7 +369,7 @@ export default function AboutPage() {
                 </svg>
 
                 {/* Node 2 */}
-                <div className="flex w-full flex-1 items-center gap-3 rounded-lg border border-primary/40 bg-primary/20 p-3 shadow-[0_0_16px_rgb(0_128_255/0.2)]">
+                <div className="flex w-full min-w-0 flex-1 items-center gap-3 rounded-lg border border-primary/40 bg-primary/20 p-3 shadow-[0_0_16px_rgb(0_128_255/0.2)]">
                   <span className="grid size-8 shrink-0 place-items-center rounded-md bg-primary text-white">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                       <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7" />
@@ -386,7 +386,7 @@ export default function AboutPage() {
                 </svg>
 
                 {/* Node 3 */}
-                <div className="flex w-full flex-1 items-center gap-3 rounded-lg border border-white/5 bg-white/5 p-3">
+                <div className="flex w-full min-w-0 flex-1 items-center gap-3 rounded-lg border border-white/5 bg-white/5 p-3">
                   <span className="grid size-8 shrink-0 place-items-center rounded-md bg-emerald-500/20 text-emerald-400">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />

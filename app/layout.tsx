@@ -18,9 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZeroBusy — Streamline. Automate. Scale.",
+  title: "ZeroBusy — Grow without hiring.",
   description:
-    "We architect autonomous digital workflows on deterministic, AI-assisted infrastructure that eliminates repetitive manual tasks.",
+    "Automation for growing service businesses. Your leads pile up and your data is spread over ten tabs. You can hire more people to deal with it, or build a system that does it. We build the system.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,6 +1,5 @@
 import Cta from "@/components/landing/Cta";
 import Hero from "@/components/landing/Hero";
-import HowItWorks from "@/components/landing/HowItWorks";
 import Journey from "@/components/landing/Journey";
 import Proof from "@/components/landing/Proof";
 import Solutions from "@/components/landing/Solutions";
@@ -11,7 +10,6 @@ export default function LandingPage() {
     <>
       <Hero />
       <Solutions />
-      <HowItWorks />
       <Journey />
       <Proof />
       <TechStack />
