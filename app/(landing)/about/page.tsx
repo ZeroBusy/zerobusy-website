@@ -12,12 +12,8 @@ export const metadata: Metadata = {
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
-/**
- * TODO(Tanay): drop a photo in /public/founder/ and set the path here.
- * Until then the portrait and sign-off render a monogram rather than a
- * stand-in face, so we never show a person who isn't you.
- */
-const FOUNDER_PHOTO: string | null = null;
+/** Open Peeps (CC0) illustration matched to Tanay's photos. Swap for a real photo any time. */
+const FOUNDER_IMAGE = "/founder/tanay-peep.svg";
 
 /** Our Values + Why Choose ZeroBusy, merged into three points. */
 const principles = [
@@ -49,17 +45,6 @@ const principles = [
     icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
   },
 ];
-
-function Monogram({ className }: { className: string }) {
-  return (
-    <span
-      aria-hidden
-      className={`grid place-items-center rounded-full bg-linear-135 from-primary to-secondary font-display font-extrabold text-white ${className}`}
-    >
-      TP
-    </span>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -147,12 +132,8 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-8 flex items-center gap-3 border-t border-line pt-6">
-              {FOUNDER_PHOTO ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={FOUNDER_PHOTO} alt="" className="size-12 rounded-full object-cover" />
-              ) : (
-                <Monogram className="size-12 text-label-md" />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={FOUNDER_IMAGE} alt="" className="size-12 rounded-full bg-ice object-cover" />
               <span>
                 <span className="block font-display text-label-md text-ink">Tanay Patwa</span>
                 <span className="block text-body-sm text-ink-muted">Founder, ZeroBusy</span>
@@ -164,14 +145,12 @@ export default function AboutPage() {
           <Reveal className="min-w-0 lg:col-span-5">
             <figure className="mx-auto max-w-sm">
               <div className="aspect-4/5 overflow-hidden rounded-2xl border border-line bg-ice shadow-card">
-                {FOUNDER_PHOTO ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={FOUNDER_PHOTO} alt="Tanay Patwa, founder of ZeroBusy" className="size-full object-cover" />
-                ) : (
-                  <div className="grid size-full place-items-center bg-[radial-gradient(420px_300px_at_70%_10%,rgb(0_194_255/.18),transparent_70%)]">
-                    <Monogram className="size-32 text-headline-xl" />
-                  </div>
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={FOUNDER_IMAGE}
+                  alt="Illustration of Tanay Patwa, founder of ZeroBusy"
+                  className="size-full bg-[radial-gradient(420px_300px_at_70%_10%,rgb(0_194_255/.18),transparent_70%)] object-contain object-bottom"
+                />
               </div>
               <figcaption className="mt-3 text-center text-body-sm text-ink-muted">Tanay Patwa, Founder</figcaption>
             </figure>
