@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             <div className="mt-8 flex items-center gap-3 border-t border-line pt-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={FOUNDER_AVATAR} alt="" className="size-12 rounded-full object-cover" />
+              <img src={FOUNDER_AVATAR} alt="" className="size-16 rounded-full object-cover" />
               <span>
                 <span className="block font-display text-label-md text-ink">Tanay Patwa</span>
                 <span className="block text-body-sm text-ink-muted">Founder, ZeroBusy</span>
