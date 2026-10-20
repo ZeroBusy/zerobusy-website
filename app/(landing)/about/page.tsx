@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
-/** Open Peeps (CC0) illustration matched to Tanay's photos. Swap for a real photo any time. */
-const FOUNDER_IMAGE = "/founder/tanay-peep.svg";
+const FOUNDER_PORTRAIT = "/founder/tanay-portrait.webp";
+const FOUNDER_AVATAR = "/founder/tanay-avatar.webp";
 
 /** Our Values + Why Choose ZeroBusy, merged into three points. */
 const principles = [
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             <div className="mt-8 flex items-center gap-3 border-t border-line pt-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={FOUNDER_IMAGE} alt="" className="size-12 rounded-full bg-ice object-cover" />
+              <img src={FOUNDER_AVATAR} alt="" className="size-12 rounded-full object-cover" />
               <span>
                 <span className="block font-display text-label-md text-ink">Tanay Patwa</span>
                 <span className="block text-body-sm text-ink-muted">Founder, ZeroBusy</span>
@@ -144,12 +144,12 @@ export default function AboutPage() {
           {/* Right: founder portrait (replaces the mission card and terminal graphic) */}
           <Reveal className="min-w-0 lg:col-span-5">
             <figure className="mx-auto max-w-sm">
-              <div className="aspect-4/5 overflow-hidden rounded-2xl border border-line bg-ice shadow-card">
+              <div className="aspect-4/5 overflow-hidden rounded-2xl border border-line bg-white shadow-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={FOUNDER_IMAGE}
-                  alt="Illustration of Tanay Patwa, founder of ZeroBusy"
-                  className="size-full bg-[radial-gradient(420px_300px_at_70%_10%,rgb(0_194_255/.18),transparent_70%)] object-contain object-bottom"
+                  src={FOUNDER_PORTRAIT}
+                  alt="Tanay Patwa, founder of ZeroBusy"
+                  className="size-full bg-white object-cover"
                 />
               </div>
               <figcaption className="mt-3 text-center text-body-sm text-ink-muted">Tanay Patwa, Founder</figcaption>
