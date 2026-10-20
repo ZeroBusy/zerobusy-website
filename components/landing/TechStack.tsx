@@ -72,7 +72,7 @@ export default function TechStack() {
         <SectionHeader
           eyebrow="OUR TOOLKIT"
           title="The tools we build with"
-          description="We work inside the software you already use. When we need to add something, these are the tools we trust. Knowing them well is how we build fast."
+          description="We work alongside the software you already use."
         />
       </div>
 

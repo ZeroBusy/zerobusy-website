@@ -13,7 +13,7 @@ export default function Hero() {
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white/90 px-4 py-2 shadow-card">
             <span className="size-2 shrink-0 animate-pulse-dot rounded-full bg-secondary" />
-            <span className="font-display text-label-sm text-ink">Automation for growing service businesses</span>
+            <span className="font-display text-label-sm text-ink">Automation systems to help your business handle scale</span>
           </div>
 
           <h1 className="mt-6 text-display-hero-mobile text-ink md:text-display-hero">
@@ -22,9 +22,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-body-md text-pretty text-ink-soft md:text-body-lg">
-            Your leads pile up. Your data is spread over ten tabs. Your team spends the day moving things from one
-            place to another. You can hire more people to deal with it, or you can build a system that does it. We
-            build the system.
+            We automate the busywork that slows your team down: lead replies, data entry, weekly reports, custom
+            agents and more. You take on more work with the team you already have.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -36,7 +35,7 @@ export default function Hero() {
               </svg>
             </a>
             <a href="#proof" className="btn btn-secondary rounded-base">
-              See what we have built
+              See client results
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <path d="M5 12h13M12 5.5 18.5 12 12 18.5" />
               </svg>

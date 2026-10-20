@@ -7,7 +7,7 @@ const steps = [
   {
     title: "We look at how you work",
     description:
-      "We sit with you and your team and map where the time actually goes — the spreadsheets, the inbox, the handoffs, the things everyone has stopped noticing because that is just how it is done.",
+      "We sit with you and your team and map where the time actually goes: the spreadsheets, the inbox, the handoffs, the things everyone has stopped noticing because that is just how it is done.",
     badge: "We map your day",
     icon: (
       <>
@@ -19,9 +19,9 @@ const steps = [
     ),
   },
   {
-    title: "We pick what to fix first",
+    title: "We recommend what to fix first",
     description:
-      "Not everything is worth automating. We rank what we found by how much time it gives back and how fast we can ship it, then start with the one or two that matter most. You see the list before we touch anything.",
+      "Not everything is worth automating :) We rank what we found by how much ROI it generates and how fast we can ship it, then we start with the one or two that matter most for you to see the magic!",
     badge: "Biggest win first",
     icon: (
       <>
@@ -34,8 +34,8 @@ const steps = [
   {
     title: "We build it",
     description:
-      "We build it inside the tools you already use, so nobody has to learn a new system. You get it written down in plain language too, so you are never stuck with something only we understand.",
-    badge: "Built into your tools",
+      "We build it inside the tools you already use, so nobody has to learn anything new. We keep it stupidly simple, so you never have to think about how or where it runs. It just works quietly in the background while you grow your business.",
+    badge: "Works in the background",
     icon: (
       <>
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -48,7 +48,7 @@ const steps = [
   {
     title: "We test it, then switch it on",
     description:
-      "It gets tested away from your live data before anyone on your team touches it. Once it is running, we watch it — so if something breaks, we usually know before you do.",
+      "It gets tested away from your live data before anyone on your team touches it. Once it is running, we watch it, so if something breaks, we usually know before you do.",
     badge: "Tested before it goes live",
     icon: (
       <>
@@ -263,9 +263,9 @@ export default function Journey() {
           <div>
             <h3 className="text-headline-md text-ink">Careful with AI where it counts</h3>
             <p className="mt-2 max-w-2xl text-body-md text-pretty text-ink-soft">
-              For work like money or legal papers, a wrong answer costs real money. So we use AI in a controlled way
-              there. It follows set rules, does the same thing every time, and a person approves what matters. Where a
-              mistake is cheap, we let it move faster.
+              For work like finance, PII or legal papers, a wrong answer may have real consequences. In such cases we
+              use AI in a controlled way, where it follows set rules, does the same thing every time, and a person
+              approves important steps.
             </p>
           </div>
         </div>

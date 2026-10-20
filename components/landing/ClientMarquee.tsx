@@ -9,9 +9,9 @@ import { clients } from "./clients";
  * overflow, which would make the `translateX(-50%)` keyframe travel only a
  * fraction of the real content width and loop back early.
  */
-export default function ClientMarquee() {
+export default function ClientMarquee({ className = "border-t border-line bg-white/70" }: { className?: string }) {
   return (
-    <div className="flex flex-wrap border-t border-line bg-white/70">
+    <div className={`flex flex-wrap ${className}`}>
       <div className="flex items-center px-6 py-5 font-display text-label-sm whitespace-nowrap text-ink-muted md:px-8">
         TRUSTED BY
       </div>

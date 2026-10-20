@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import SectionHeader from "./SectionHeader";
-import { goodFit, notFit } from "./fitCheckContent";
+import { goodFit, notFit, type NotFitItem } from "./fitCheckContent";
 
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
@@ -36,7 +36,7 @@ function FitList({
   visible,
   from,
 }: {
-  items: string[];
+  items: (string | NotFitItem)[];
   tone: Side;
   visible: boolean;
   from: "left" | "right";
@@ -48,7 +48,7 @@ function FitList({
     <ul className="grid gap-2.5">
       {items.map((item, i) => (
         <li
-          key={item}
+          key={typeof item === "string" ? item : item.lead}
           style={{ transitionDelay: visible ? `${i * 60}ms` : "0ms" }}
           className={`flex items-start gap-3 rounded-lg border p-4 transition-[opacity,translate] duration-500 motion-reduce:transition-none motion-reduce:translate-x-0 motion-reduce:opacity-100 ${
             visible ? "translate-x-0 opacity-100" : hidden
@@ -65,7 +65,15 @@ function FitList({
           >
             {isGood ? <TickIcon /> : <CrossIcon />}
           </span>
-          <span className={`text-body-md text-pretty ${isGood ? "text-ink" : "text-ink-soft"}`}>{item}</span>
+          <span className={`text-body-md text-pretty ${isGood ? "text-ink" : "text-ink-soft"}`}>
+            {typeof item === "string" ? (
+              item
+            ) : (
+              <>
+                <strong className="font-semibold text-ink">{item.lead}</strong> {item.detail}
+              </>
+            )}
+          </span>
         </li>
       ))}
     </ul>
@@ -102,7 +110,7 @@ export default function FitCheck() {
             Are we a <span className="text-primary">good fit?</span>
           </>
         }
-        description="We would rather tell you now than three weeks in. Here is who we do our best work for, and who we do not."
+        description="We would rather tell you now than weeks later. Here is who we do our best work for, and who we do not."
       />
 
       <div ref={ref} className="mx-auto mt-12 max-w-5xl">
@@ -169,7 +177,7 @@ export default function FitCheck() {
               <span className="grid size-7 place-items-center rounded-full bg-success/15 text-success">
                 <TickIcon />
               </span>
-              We are probably a good fit if…
+              You&apos;ll get the most from us if…
             </h3>
             <FitList items={goodFit} tone="good" visible={visible} from="left" />
           </div>
@@ -178,7 +186,7 @@ export default function FitCheck() {
               <span className="grid size-7 place-items-center rounded-full bg-ink-muted/12 text-ink-muted">
                 <CrossIcon />
               </span>
-              We are probably not, if…
+              We&apos;re probably not right if…
             </h3>
             <FitList items={notFit} tone="not" visible={visible} from="right" />
           </div>

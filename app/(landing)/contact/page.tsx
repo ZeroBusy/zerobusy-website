@@ -15,27 +15,34 @@ const BOOKING_URL =
  */
 const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
 
-/* ===== FAQ Data ===== */
+/* ===== FAQ Data =====
+ * Plain answers that only repeat claims made elsewhere on the site. Draft -
+ * Tanay to review. */
 const faqs = [
   {
-    question: "How long does implementation take?",
+    question: "How long does a build take?",
     answer:
-      "Most automation projects are completed within 2–6 weeks, depending on complexity. We'll provide a detailed timeline during our free consultation.",
+      "Most builds take 2 to 6 weeks, depending on how much there is to connect. You get a clear timeline after the first call.",
   },
   {
-    question: "Do you provide ongoing support?",
+    question: "Do we have to change the tools we use?",
     answer:
-      "Yes! We offer 24/7 monitoring and support to ensure your automations run smoothly. We also provide training for your team to handle day-to-day operations.",
+      "No. We build inside the software you already use, and we can connect 1,000+ apps. If something doesn't connect out of the box, we build the connection.",
   },
   {
-    question: "What's included in the free consultation?",
+    question: "What happens after launch?",
     answer:
-      "We'll analyze your current workflows, identify automation opportunities, and provide a custom roadmap with ROI projections — all at no cost.",
+      "We stay on. We watch it, fix what breaks and build the next thing when you're ready. You also get it documented in plain language, so you're never stuck with something only we understand.",
   },
   {
-    question: "Can you integrate with our existing tools?",
+    question: "What do I get from the free call?",
     answer:
-      "Absolutely! We work with 1,000+ tools and platforms. If a native connector doesn't exist, we'll build a custom integration via API or webhook.",
+      "We look at how your team works and point out the first three things worth automating. You keep the list either way.",
+  },
+  {
+    question: "Is our data safe?",
+    answer:
+      "We can run your automations on your own servers so your data stays with you. Anything that touches money, personal data or contracts gets a person's sign-off before it goes out.",
   },
 ];
 
@@ -230,7 +237,7 @@ export default function ContactPage() {
 
           <h1 className="mt-6 font-display text-display-hero-mobile font-extrabold tracking-tight text-ink md:text-display-hero">
             Let&apos;s Connect &amp;{" "}
-            <span className="bg-linear-135 from-primary to-secondary bg-clip-text text-transparent">Automate</span>
+            <span className="bg-linear-135 from-primary to-secondary bg-clip-text text-transparent">Integrate Systems</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-body-md text-pretty text-ink-soft md:text-body-lg">
@@ -545,7 +552,7 @@ export default function ContactPage() {
             Frequently Asked Questions
           </h2>
           <p className="mt-2 text-body-md text-ink-soft">
-            Everything you need to know about our AI automation workflows, timelines, and systems integration.
+            Straight answers to what people usually ask before booking.
           </p>
         </div>
 

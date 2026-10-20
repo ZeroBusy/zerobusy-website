@@ -32,11 +32,11 @@ const linkGroups = [
   {
     title: "SERVICES",
     links: [
-      { label: "Workflow Architecture", href: "/services#services-list" },
-      { label: "Lead Gen Pipeline AI", href: "/services#services-list" },
-      { label: "Customer Ops Agents", href: "/services#services-list" },
-      { label: "Custom LLM Fine-Tuning", href: "/services#services-list" },
-      { label: "Internal Tools & Zapier", href: "/services#services-list" },
+      // Anchors match the card ids on /services.
+      { label: "Lead replies & follow-up", href: "/services#leads" },
+      { label: "No more double entry", href: "/services#data" },
+      { label: "Reports & dashboards", href: "/services#reports" },
+      { label: "AI agents & chat", href: "/services#agents" },
     ],
   },
 ];
@@ -91,14 +91,14 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 text-label-sm text-white/50">GET STARTED</h4>
             <div className="rounded-lg border border-white/10 bg-white/5 p-5">
-              <p className="mb-4 text-body-md text-white/80">Ready to reclaim 20+ operational hours every week?</p>
+              <p className="mb-4 text-body-md text-white/80">Find the first hours you can win back.</p>
               <a
                 href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-accent w-full rounded-base"
               >
-                Schedule Call
+                Book a free 30-minute call
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <path d="M9 6l6 6-6 6" />
                 </svg>
@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 py-6 text-body-sm text-white/50">
-          <span>© 2026 ZeroBusy Technologies LLC. All rights reserved.</span>
+          <span>© 2026 ZeroBusy. All rights reserved.</span>
           <a href="mailto:automate@zerobusy.com" className="transition-colors hover:text-white">
             automate@zerobusy.com
           </a>

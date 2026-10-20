@@ -59,7 +59,7 @@ export default function Proof() {
             What our <span className="text-primary">clients say</span>
           </>
         }
-        description="Owners we have built for, in their own words."
+        description="Founders & operators we have built for, in their own words."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
