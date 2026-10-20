@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us — ZeroBusy | Let's Connect & Automate",
+  title: "Contact — ZeroBusy",
   description:
-    "Get in touch with ZeroBusy to discuss your AI automation needs. Book a free consultation, send us a message, or schedule a 30-minute operational audit.",
+    "Book a free 30-minute call or send us a message. We look at how your team works and point out the first three things worth automating.",
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

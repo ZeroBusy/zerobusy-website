@@ -12,10 +12,11 @@ import { clients } from "./clients";
 export default function ClientMarquee({ className = "border-t border-line bg-white/70" }: { className?: string }) {
   return (
     <div className={`flex flex-wrap ${className}`}>
-      <div className="flex items-center px-6 py-5 font-display text-label-sm whitespace-nowrap text-ink-muted md:px-8">
-        TRUSTED BY
+      {/* Full-width row above the logos on small screens; side by side from md. */}
+      <div className="flex w-full items-center justify-center px-6 pt-4 font-display text-label-sm whitespace-nowrap text-ink-muted md:w-auto md:justify-start md:px-8 md:py-5">
+        COMPANIES WE HAVE BUILT FOR
       </div>
-      <div className="relative flex-1 overflow-hidden border-line md:border-l">
+      <div className="relative min-w-0 shrink grow basis-full overflow-hidden border-line md:basis-0 md:border-l">
         <div className="zb-marquee inline-flex w-max items-center">
           {[...clients, ...clients].map((client, i) => (
             <a

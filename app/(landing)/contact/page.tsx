@@ -48,10 +48,10 @@ const faqs = [
 
 /* ===== Metrics Data ===== */
 const metrics = [
-  { value: "24h", label: "Guaranteed Response", sub: "Direct senior engineering reply", accent: true },
-  { value: "2–6w", label: "Deployment Time", sub: "Rapid production execution", accent: false },
-  { value: "1,000+", label: "Tool Integrations", sub: "APIs, Webhooks & SDKs", accent: true },
-  { value: "99.9%", label: "Pipeline Reliability", sub: "Deterministic, AI-assisted workflows", accent: false },
+  { value: "24h", label: "Reply time", sub: "From a real person, not a bot", accent: true },
+  { value: "2–6w", label: "Typical build", sub: "From first call to live", accent: false },
+  { value: "1,000+", label: "Apps we connect", sub: "From your CRM to WhatsApp to Shopify", accent: true },
+  { value: "99.9%", label: "Automation uptime", sub: "Systems that keep running", accent: false },
 ];
 
 /* ===== Icons ===== */
@@ -253,7 +253,7 @@ export default function ContactPage() {
           <div className="mb-6 flex items-center justify-between pb-2">
             <div>
               <span className="font-display text-label-sm font-bold tracking-wider text-primary uppercase">
-                Direct Dispatch
+                Write to us
               </span>
               <h2 className="mt-1 font-display text-headline-md font-bold text-ink">Send us a message</h2>
             </div>
@@ -261,7 +261,7 @@ export default function ContactPage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-success" aria-hidden>
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              <span className="font-display text-label-sm text-ink-muted">SLA Active</span>
+              <span className="font-display text-label-sm text-ink-muted">Kept confidential</span>
             </div>
           </div>
 
@@ -367,7 +367,7 @@ export default function ContactPage() {
                 name="message"
                 rows={4}
                 required
-                placeholder="Tell us about your operational bottlenecks and automation goals..."
+                placeholder="What's eating your team's time?"
                 className="w-full resize-none rounded-lg bg-canvas p-3.5 text-body-md text-ink outline-none placeholder:text-ink-muted transition-all focus:bg-white focus:shadow-[0_0_0_2px_rgba(0,128,255,0.25)]"
               />
             </div>
@@ -398,7 +398,7 @@ export default function ContactPage() {
               </button>
               <div className="flex items-center gap-1.5 text-body-sm text-ink-muted">
                 <LockIcon />
-                <span>24-hour response guarantee · Strictly confidential</span>
+                <span>We reply within 24 hours. Your details stay private.</span>
               </div>
             </div>
 
@@ -406,7 +406,7 @@ export default function ContactPage() {
             {formStatus === "sent" && (
               <div className="mt-1 flex items-center gap-2 rounded-lg bg-ice p-3 text-body-sm text-primary">
                 <CheckCircle />
-                <span>Message recorded! Our senior automation architect will review and respond within 24 hours.</span>
+                <span>Thanks, got it. We&apos;ll get back to you within 24 hours.</span>
               </div>
             )}
 
@@ -428,14 +428,14 @@ export default function ContactPage() {
           {/* Intro Card */}
           <div className="rounded-xl border border-line bg-white p-6 shadow-card">
             <span className="font-display text-label-sm font-bold tracking-wider text-primary uppercase">
-              Operational Mastery
+              Talk to us
             </span>
             <h2 className="mt-1 font-display text-headline-md font-bold text-ink">
-              Let&apos;s talk about your automation needs
+              Tell us what&apos;s slowing you down
             </h2>
             <p className="mt-2 text-body-md text-ink-soft">
-              Ready to eliminate busy work and focus on growing your business? We&apos;re here to help you discover the
-              perfect automation solutions for your unique needs.
+              Send a message or book a call. Either way, you&apos;ll hear back from a person who can tell you what&apos;s
+              worth automating first.
             </p>
           </div>
 
@@ -443,14 +443,15 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {/* Email Card */}
             <div className="flex items-start justify-between gap-3 rounded-xl border border-line bg-white p-4 shadow-card transition hover:shadow-hover">
-              <div className="flex items-start gap-3">
+              <div className="flex min-w-0 items-start gap-3">
                 <div className="grid size-11 shrink-0 place-items-center rounded-lg bg-ice text-primary">
                   <MailIcon />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex min-w-0 flex-col">
                   <span className="font-display text-label-sm font-semibold tracking-wider text-ink-muted uppercase">Email Us</span>
-                  <a href="mailto:automate@zerobusy.com" className="mt-0.5 font-display text-headline-sm font-bold text-ink transition-colors hover:text-primary">
-                    tanay@zerobusy.com
+                  <a href="mailto:automate@zerobusy.com" className="mt-0.5 font-display text-headline-sm font-bold [overflow-wrap:break-word] text-ink transition-colors hover:text-primary">
+                    {/* <wbr> lets narrow screens break after the @ instead of mid-word */}
+                    automate@<wbr />zerobusy.com
                   </a>
                   <span className="mt-0.5 text-body-sm text-ink-muted">We&apos;ll respond within 24 hours</span>
                 </div>
@@ -473,8 +474,8 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-display text-label-sm font-semibold tracking-wider text-ink-muted uppercase">Schedule a Call</span>
-                  <span className="mt-0.5 font-display text-headline-sm font-bold text-ink">Book a free 30-min consultation</span>
-                  <span className="mt-0.5 text-body-sm text-ink-muted">Live architecture roadmap review</span>
+                  <span className="mt-0.5 font-display text-headline-sm font-bold text-ink">Book a free 30-minute call</span>
+                  <span className="mt-0.5 text-body-sm text-ink-muted">We point out the first three things worth automating</span>
                 </div>
               </div>
               <a
@@ -498,7 +499,7 @@ export default function ContactPage() {
               <div className="flex flex-col">
                 <span className="font-display text-label-sm font-semibold tracking-wider text-ink-muted uppercase">Location</span>
                 <span className="mt-0.5 font-display text-headline-sm font-bold text-ink">Remote-first company</span>
-                <span className="mt-0.5 text-body-sm text-ink-muted">Serving clients worldwide across all primary time zones</span>
+                <span className="mt-0.5 text-body-sm text-ink-muted">We work with clients wherever they are</span>
               </div>
             </div>
 
@@ -509,14 +510,14 @@ export default function ContactPage() {
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75" />
                   <span className="relative inline-flex size-2.5 rounded-full bg-success" />
                 </span>
-                <span className="font-display text-label-md font-bold text-ink">Quick Response Guaranteed</span>
+                <span className="font-display text-label-md font-bold text-ink">We reply fast</span>
               </div>
               <p className="text-body-sm text-ink-soft">
                 We typically respond to all inquiries within 24 hours. For urgent matters, mention it in your message
                 and we&apos;ll prioritize your request.
               </p>
               <Link href="/services" className="mt-1 inline-flex items-center gap-1 font-display text-label-md font-semibold text-primary transition-colors hover:text-primary-hover">
-                View Our Services
+                See what we build
                 <ArrowRight />
               </Link>
             </div>

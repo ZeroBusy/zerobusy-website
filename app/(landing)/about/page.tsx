@@ -81,8 +81,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-body-md text-pretty text-ink-soft md:text-body-lg">
-            We&apos;re on a mission to eliminate busy work and help digital businesses focus on what truly matters through
-            intelligent AI automation.
+            We build the systems that take busywork off your team&apos;s plate, and we stay to keep them running.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
