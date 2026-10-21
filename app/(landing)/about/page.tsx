@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import ClientMarquee from "@/components/landing/ClientMarquee";
 import Cta from "@/components/landing/Cta";
 import Reveal from "@/components/landing/Reveal";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About — ZeroBusy",
+export const metadata: Metadata = pageMetadata({
+  title: "About Us | ZeroBusy",
   description:
-    "I got tired of watching good people do robot work. ZeroBusy builds the systems that take that work off their plate, and stays to keep them running.",
-};
+    "ZeroBusy builds AI automation systems that take robot work off your team's plate, and stays to keep them running. Meet founder Tanay Patwa.",
+  path: "/about",
+});
 
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";

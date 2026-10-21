@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Cta from "@/components/landing/Cta";
 import Reveal from "@/components/landing/Reveal";
 
-export const metadata: Metadata = {
-  title: "Services — ZeroBusy",
+export const metadata: Metadata = pageMetadata({
+  title: "AI Automation Services | ZeroBusy",
   description:
-    "We build systems that do your repetitive work for you, so your team can focus on clients and growth.",
-};
+    "AI automation services for service businesses: instant lead replies, automatic data entry, weekly reports and custom AI agents, built and run for you.",
+  path: "/services",
+});
 
 const BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
