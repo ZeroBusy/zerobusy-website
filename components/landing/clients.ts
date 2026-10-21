@@ -19,5 +19,6 @@ export const clients: Client[] = [
   { name: "KKings Events", src: "/clients/kkings-events.png", href: "https://kkingsevents.com/", width: 79, height: 100 },
   { name: "Lubna Meherally", src: "/clients/lubna-meherally.png", href: "https://www.therapywithlubna.com/", width: 170, height: 40 },
   { name: "Veer Gidwani", src: "/clients/veer-gidwani.jpeg", href: "https://veergidwanicoaching.com/42days/", width: 80, height: 40 },
+  { name: "The AER League", src: "/clients/aer-league.png", href: "https://www.theaerleague.com/", width: 86, height: 60 },
   { name: "Indira Gems", src: "/clients/indira-gems.png", href: "#", width: 120, height: 60 },
 ];
