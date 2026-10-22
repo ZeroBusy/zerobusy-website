@@ -108,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== 3. ORIGIN STORY ===== */}
-      <section id="our-story" className="scroll-mt-28 rounded-xl border border-line bg-white px-6 py-16 md:px-10 lg:py-24">
+      <section id="our-story" className="scroll-mt-28 rounded-xl border border-line bg-white px-6 py-12 md:px-10 md:py-16 lg:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Left: the story, in Tanay's voice */}
           <Reveal className="min-w-0 lg:col-span-7">
@@ -161,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* ===== 4. WHAT TO EXPECT (Our Values + Why Choose ZeroBusy, merged) ===== */}
-      <section className="rounded-xl border border-line bg-canvas px-6 py-16 md:px-10 lg:py-24">
+      <section className="rounded-xl border border-line bg-canvas px-6 py-12 md:px-10 md:py-16 lg:py-24">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-ice px-4 py-1.5 font-display text-label-sm text-primary">
             <span className="size-1.5 rounded-full bg-secondary" />

@@ -279,3 +279,28 @@
     animation: none;
   }
 }
+
+/* Mobile swipe rows (components/landing/SwipeRow.tsx). Below md, a card grid
+   becomes a horizontal snap row that bleeds to the section edge, with the
+   next card peeking in. Unlayered so it wins over the grid utilities. */
+@media (max-width: 767px) {
+  .zb-swipe {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: -24px;
+    padding: 4px 24px 8px;
+    scroll-padding-inline: 24px;
+    scrollbar-width: none;
+  }
+
+  .zb-swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .zb-swipe > * {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}

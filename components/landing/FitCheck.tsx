@@ -102,7 +102,7 @@ export default function FitCheck() {
 
   return (
     // ===== Start: Fit check section =====
-    <section id="fit" className="mt-6 rounded-xl bg-white px-6 py-16 md:px-10 lg:py-24">
+    <section id="fit" className="mt-6 rounded-xl bg-white px-6 py-12 md:px-10 md:py-16 lg:py-24">
       <SectionHeader
         eyebrow="BEFORE YOU BOOK"
         title={

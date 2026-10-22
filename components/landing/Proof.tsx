@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import SwipeRow from "./SwipeRow";
 import { ArrowRight } from "./icons";
 
 const success = "bg-success/10 text-success";
@@ -51,7 +52,7 @@ const stories = [
 export default function Proof() {
   return (
     // ===== Start: Proof (Client Stories) section =====
-    <section id="proof" className="mt-6 rounded-xl bg-canvas px-6 py-16 md:px-10 lg:py-24">
+    <section id="proof" className="mt-6 rounded-xl bg-canvas px-6 py-12 md:px-10 md:py-16 lg:py-24">
       <SectionHeader
         eyebrow="CLIENT STORIES"
         title={
@@ -62,7 +63,8 @@ export default function Proof() {
         description="Founders & operators we have built for, in their own words."
       />
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Cards keep their own height on phones so short quotes don't sit in empty boxes. */}
+      <SwipeRow className="mt-8 grid gap-6 max-md:items-start md:mt-12 md:grid-cols-2 lg:grid-cols-3">
         {stories.map((story) => (
           <Reveal key={story.client}>
             <article className="card flex h-full flex-col p-6">
@@ -99,7 +101,7 @@ export default function Proof() {
             </a>
           </div>
         </Reveal>
-      </div>
+      </SwipeRow>
     </section>
   );
 }

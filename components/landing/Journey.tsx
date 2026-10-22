@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import SectionHeader from "./SectionHeader";
+import SwipeRow from "./SwipeRow";
 
 const steps = [
   {
@@ -86,6 +87,12 @@ export default function Journey() {
       const timeline = timelineRef.current;
       if (!timeline) return;
 
+      // Phones get a swipe row with no timeline, so every step shows as active.
+      if (window.innerWidth < 768) {
+        setActiveSteps(steps.map(() => true));
+        return;
+      }
+
       const validSteps = stepRefs.current.filter(Boolean) as HTMLDivElement[];
       if (validSteps.length === 0) return;
 
@@ -151,7 +158,7 @@ export default function Journey() {
 
   return (
     // ===== Start: Journey section =====
-    <section className="mt-6 overflow-hidden rounded-xl bg-ice px-6 py-16 md:px-10 lg:py-24">
+    <section className="mt-6 overflow-hidden rounded-xl bg-ice px-6 py-12 md:px-10 md:py-16 lg:py-24">
       <SectionHeader
         eyebrow="HOW IT WORKS"
         title={
@@ -164,10 +171,10 @@ export default function Journey() {
         description="No ripping out what you already have. We find the job eating the most time, fix that one, and go from there."
       />
 
-      <div ref={timelineRef} className="relative mx-auto mt-12 max-w-4xl lg:mt-16">
+      <SwipeRow ref={timelineRef} className="relative mx-auto mt-8 max-w-4xl md:mt-12 lg:mt-16">
         {/* Background track connecting first circle to last circle */}
         <div
-          className="absolute left-[23px] -translate-x-1/2 w-[3px] rounded-full bg-outline/35"
+          className="absolute left-[23px] w-[3px] -translate-x-1/2 rounded-full bg-outline/35 max-md:hidden"
           style={{
             top: "23px",
             height: lineHeight > 0 ? `${lineHeight}px` : "calc(100% - 46px)",
@@ -176,7 +183,7 @@ export default function Journey() {
 
         {/* Dynamic active progress line */}
         <div
-          className="absolute left-[23px] -translate-x-1/2 w-[3px] rounded-full bg-linear-to-b from-secondary to-primary shadow-[0_0_16px_rgb(0_194_255/.5)] transition-[height] duration-150 ease-out"
+          className="absolute left-[23px] w-[3px] -translate-x-1/2 rounded-full max-md:hidden bg-linear-to-b from-secondary to-primary shadow-[0_0_16px_rgb(0_194_255/.5)] transition-[height] duration-150 ease-out"
           style={{
             top: "23px",
             height: `${progress * lineHeight}px`,
@@ -191,12 +198,12 @@ export default function Journey() {
               ref={(el) => {
                 stepRefs.current[i] = el;
               }}
-              className={`relative grid grid-cols-[46px_1fr] items-start gap-4 pb-8 transition-all duration-500 last:pb-0 md:gap-6 md:pb-10 ${
+              className={`relative grid items-stretch transition-all duration-500 md:grid-cols-[46px_1fr] md:items-start md:gap-6 md:pb-10 md:last:pb-0 ${
                 active ? "translate-y-0 opacity-100" : "translate-y-2 opacity-50"
               }`}
             >
               <span
-                className={`relative z-10 grid size-[46px] shrink-0 place-items-center rounded-full border-3 transition-all duration-400 ${
+                className={`relative z-10 grid size-[46px] shrink-0 place-items-center rounded-full border-3 max-md:hidden transition-all duration-400 ${
                   active
                     ? "border-primary bg-primary text-white shadow-hover scale-105 ring-4 ring-primary/15"
                     : "border-line bg-white text-ink-muted scale-100"
@@ -218,7 +225,7 @@ export default function Journey() {
               </span>
 
               <div
-                className={`card p-6 transition-all duration-500 md:p-8 ${
+                className={`card h-full p-6 transition-all duration-500 md:h-auto md:p-8 ${
                   active
                     ? "border-primary/30 shadow-hover ring-1 ring-primary/10"
                     : "border-line/70"
@@ -250,10 +257,10 @@ export default function Journey() {
             </div>
           );
         })}
-      </div>
+      </SwipeRow>
 
       {/* Replaces the old "deterministic" badge - the reliability point in plain words. */}
-      <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-line bg-white p-6 shadow-card md:p-8">
+      <div className="mx-auto mt-8 max-w-4xl rounded-xl border border-line bg-white p-6 shadow-card md:mt-12 md:p-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
           <span className="grid size-11 shrink-0 place-items-center rounded-md bg-primary/10 text-primary">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

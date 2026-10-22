@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import SwipeRow from "./SwipeRow";
 import { Check } from "./icons";
 
 /**
@@ -79,7 +80,7 @@ type SolutionCardProps = {
 function SolutionCard({ title, description, icon, iconClass, children }: SolutionCardProps) {
   return (
     <Reveal>
-      <article className="card flex h-full flex-col p-6 md:p-8">
+      <article className="card flex h-full flex-col p-5 sm:p-6 md:p-8">
         {children}
         <span className={`mt-8 mb-4 grid size-10 place-items-center rounded-md ${iconClass}`}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -95,11 +96,11 @@ function SolutionCard({ title, description, icon, iconClass, children }: Solutio
 
 function PlainList({ items }: { items: string[] }) {
   return (
-    <ul className="grid gap-2 rounded-lg bg-canvas p-4 md:p-5">
+    <ul className="grid gap-2 rounded-lg bg-canvas p-2.5 sm:p-4 md:p-5">
       {items.map((item) => (
         <li
           key={item}
-          className="flex items-center gap-3 rounded-base border border-line bg-white px-3.5 py-3.5 text-body-md text-ink-soft"
+          className="flex items-center gap-3 rounded-base border border-line bg-white px-3 py-3 text-body-md text-ink-soft sm:px-3.5 sm:py-3.5"
         >
           <Check className="shrink-0 text-success" />
           {item}
@@ -112,7 +113,7 @@ function PlainList({ items }: { items: string[] }) {
 export default function Solutions() {
   return (
     // ===== Start: Solutions (Core Engine) section =====
-    <section id="solutions" className="mt-6 rounded-xl bg-canvas px-6 py-16 md:px-10 lg:py-24">
+    <section id="solutions" className="mt-6 rounded-xl bg-canvas px-6 py-12 md:px-10 md:py-16 lg:py-24">
       <SectionHeader
         eyebrow="WHAT WE BUILD"
         title={
@@ -123,20 +124,20 @@ export default function Solutions() {
         description="Every business is a bit different, so we build around yours. Here are the things we build most."
       />
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <SwipeRow className="mt-8 grid gap-6 md:mt-12 md:grid-cols-2">
         <SolutionCard
           title="Systems that find and handle leads"
           description="Every lead gets a fast reply and a follow-up. Nothing sits in an inbox. Your team only steps in when a person is needed."
           iconClass="bg-primary/10 text-primary"
           icon={<path d="M20 11a8 8 0 0 0-14-4.5M4 13a8 8 0 0 0 14 4.5M6 3v4h4M18 21v-4h-4" />}
         >
-          <ul className="grid gap-2 rounded-lg bg-canvas p-4 md:p-5">
+          <ul className="grid gap-2 rounded-lg bg-canvas p-2.5 sm:p-4 md:p-5">
             {workflowSteps.map((step, i) => {
               const isLast = i === workflowSteps.length - 1;
               return (
                 <li
                   key={step.title}
-                  className={`flex items-center gap-3 rounded-base border bg-white px-3.5 py-3 ${
+                  className={`flex items-center gap-3 rounded-base border bg-white px-3 py-2.5 sm:px-3.5 sm:py-3 ${
                     isLast ? "border-primary/30 shadow-hover" : "border-line"
                   }`}
                 >
@@ -151,7 +152,7 @@ export default function Solutions() {
                       {step.meta}
                     </span>
                   </span>
-                  <Check className="shrink-0 text-success" />
+                  <Check className="shrink-0 text-success max-sm:hidden" />
                 </li>
               );
             })}
@@ -184,7 +185,7 @@ export default function Solutions() {
             </>
           }
         >
-          <div className="grid gap-2 rounded-lg bg-canvas p-4 md:p-5">
+          <div className="grid gap-2 rounded-lg bg-canvas p-2.5 sm:p-4 md:p-5">
             {dashboardRows.map((row) => (
               <span
                 key={row.label}
@@ -210,7 +211,7 @@ export default function Solutions() {
         >
           <PlainList items={boringJobs} />
         </SolutionCard>
-      </div>
+      </SwipeRow>
     </section>
   );
 }

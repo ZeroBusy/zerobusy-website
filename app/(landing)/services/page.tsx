@@ -158,9 +158,9 @@ export default function ServicesPage() {
           {/* Proof strip */}
           <div className="mt-12 grid w-full grid-cols-1 divide-y divide-line rounded-xl border border-line bg-white shadow-card md:grid-cols-3 md:divide-x md:divide-y-0">
             {proofStrip.map((item) => (
-              <div key={item.big} className="flex flex-col items-center justify-center px-4 py-6">
-                <span className="font-display text-headline-lg font-extrabold whitespace-nowrap text-primary">{item.big}</span>
-                <span className="mt-1.5 max-w-[16rem] text-body-sm text-pretty text-ink-soft">{item.small}</span>
+              <div key={item.big} className="flex items-center gap-4 px-5 py-4 text-left md:flex-col md:justify-center md:gap-0 md:px-4 md:py-6 md:text-center">
+                <span className="w-36 shrink-0 font-display text-headline-md font-extrabold whitespace-nowrap text-primary md:w-auto md:text-headline-lg">{item.big}</span>
+                <span className="max-w-[16rem] text-body-sm text-pretty text-ink-soft md:mt-1.5">{item.small}</span>
               </div>
             ))}
           </div>
@@ -168,7 +168,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ===== 2. PROBLEM-LED SERVICES ===== */}
-      <section id="services-list" className="rounded-xl border border-line bg-canvas px-6 py-16 md:px-10 lg:py-24">
+      <section id="services-list" className="rounded-xl border border-line bg-canvas px-6 py-12 md:px-10 md:py-16 lg:py-24">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-ice px-4 py-1.5 font-display text-label-sm text-primary">
             <span className="size-1.5 rounded-full bg-secondary" />
@@ -182,7 +182,7 @@ export default function ServicesPage() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid gap-6 md:mt-12 lg:grid-cols-2">
           {services.map((service) => (
             <Reveal key={service.id}>
               <article id={service.id} className="card flex h-full scroll-mt-28 flex-col p-6 md:p-8">

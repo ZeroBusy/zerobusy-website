@@ -44,10 +44,10 @@ const linkGroups = [
 export default function Footer() {
   return (
     // ===== Start: Footer =====
-    <footer className="mt-24 bg-navy text-white">
+    <footer className="mt-16 bg-navy text-white md:mt-24">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-12 md:py-16 lg:grid-cols-4">
+          <div className="col-span-2 sm:col-span-1">
             <Logo variant="dark" />
             <p className="mt-4 max-w-xs text-body-md text-pretty text-white/60">
               Streamline. Automate. Scale. We help digital businesses save time through intelligent AI automation.
@@ -88,7 +88,8 @@ export default function Footer() {
             </div>
           ))}
 
-          <div>
+          {/* Phones already pass a booking CTA right above the footer. */}
+          <div className="max-sm:hidden">
             <h4 className="mb-4 text-label-sm text-white/50">GET STARTED</h4>
             <div className="rounded-lg border border-white/10 bg-white/5 p-5">
               <p className="mb-4 text-body-md text-white/80">Find the first hours you can win back.</p>
