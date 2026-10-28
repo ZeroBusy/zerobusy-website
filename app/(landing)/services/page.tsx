@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import Cta from "@/components/landing/Cta";
 import Reveal from "@/components/landing/Reveal";
+import { BOOKING_PATH } from "@/lib/booking";
 
 export const metadata: Metadata = pageMetadata({
   title: "AI Automation Services | ZeroBusy",
@@ -11,9 +12,6 @@ export const metadata: Metadata = pageMetadata({
     "AI automation services for service businesses: instant lead replies, automatic data entry, weekly reports and custom AI agents, built and run for you.",
   path: "/services",
 });
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
 const proofStrip = [
   { big: "2–40 hrs", small: "Reclaimed in your team's week" },
@@ -140,13 +138,13 @@ export default function ServicesPage() {
           </p>
 
           <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full rounded-base sm:w-auto">
+            <Link href={BOOKING_PATH} className="btn btn-primary w-full rounded-base sm:w-auto">
               Book a free 30-minute call
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 7.5V12l3 2" strokeLinecap="round" />
               </svg>
-            </a>
+            </Link>
             <Link href="/#proof" className="btn btn-secondary w-full rounded-base sm:w-auto">
               See client results
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -228,9 +226,9 @@ export default function ServicesPage() {
                 If your team does it by hand every week, we can probably build it. Tell us on the call.
               </p>
             </div>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary shrink-0 rounded-full">
+            <Link href={BOOKING_PATH} className="btn btn-secondary shrink-0 rounded-full">
               Book a free 30-minute call
-            </a>
+            </Link>
           </div>
         </Reveal>
       </section>

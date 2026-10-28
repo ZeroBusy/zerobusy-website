@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "./icons";
 import Logo from "./Logo";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
+import { BOOKING_PATH } from "@/lib/booking";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -50,15 +48,13 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href={BOOKING_PATH}
           className="btn btn-primary hidden rounded-full md:inline-flex"
         >
           Book Call
           <ArrowRight />
-        </a>
+        </Link>
 
         {/* Mobile menu button */}
         <button
@@ -90,16 +86,14 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={BOOKING_PATH}
             onClick={() => setOpen(false)}
             className="btn btn-primary mt-1 w-full rounded-full"
           >
             Book a free 30-minute call
             <ArrowRight />
-          </a>
+          </Link>
         </nav>
       )}
     </header>

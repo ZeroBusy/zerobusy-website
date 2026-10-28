@@ -1,9 +1,8 @@
+import Link from "next/link";
 import ClientMarquee from "./ClientMarquee";
 import Reveal from "./Reveal";
 import RoiEstimator from "./RoiEstimator";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
+import { BOOKING_PATH } from "@/lib/booking";
 
 export default function Hero() {
   return (
@@ -27,13 +26,13 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary rounded-base">
+            <Link href={BOOKING_PATH} className="btn btn-primary rounded-base">
               Book a free 30-minute call
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 7.5V12l3 2" strokeLinecap="round" />
               </svg>
-            </a>
+            </Link>
             <a href="#proof" className="btn btn-secondary rounded-base">
               See client results
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

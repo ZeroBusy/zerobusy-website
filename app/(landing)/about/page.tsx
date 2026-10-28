@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ClientMarquee from "@/components/landing/ClientMarquee";
 import Cta from "@/components/landing/Cta";
 import Reveal from "@/components/landing/Reveal";
 import { pageMetadata } from "@/lib/site";
+import { BOOKING_PATH } from "@/lib/booking";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us | ZeroBusy",
@@ -10,9 +12,6 @@ export const metadata: Metadata = pageMetadata({
     "ZeroBusy builds AI automation systems that take robot work off your team's plate, and stays to keep them running. Meet founder Tanay Patwa.",
   path: "/about",
 });
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
 const FOUNDER_PORTRAIT = "/founder/tanay-portrait.webp";
 const FOUNDER_AVATAR = "/founder/tanay-avatar.webp";
@@ -72,9 +71,9 @@ export default function AboutPage() {
           </p>
 
           <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full rounded-base sm:w-auto">
+            <Link href={BOOKING_PATH} className="btn btn-primary w-full rounded-base sm:w-auto">
               Book a free 30-minute call
-            </a>
+            </Link>
             <a href="#our-story" className="btn btn-secondary w-full rounded-base sm:w-auto">
               Read our story
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

@@ -1,10 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "./icons";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
+import { BOOKING_PATH } from "@/lib/booking";
 
 const HOURS_PER_DAY = 8;
 
@@ -144,15 +143,13 @@ export default function RoiEstimator() {
           </p>
         </div>
 
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href={BOOKING_PATH}
           className="btn mt-4 w-full rounded-full bg-ink text-white hover:bg-primary"
         >
           Book a free 30-minute call
           <ArrowRight />
-        </a>
+        </Link>
       </div>
     </div>
   );

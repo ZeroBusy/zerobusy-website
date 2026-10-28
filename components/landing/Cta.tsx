@@ -1,8 +1,7 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 import { ArrowRight, Check } from "./icons";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
+import { BOOKING_PATH } from "@/lib/booking";
 
 type CtaProps = {
   title?: string;
@@ -29,10 +28,10 @@ export default function Cta({
         </span>
         <h2 className="mx-auto mt-6 max-w-3xl text-headline-xl-mobile md:text-headline-xl">{title}</h2>
         <p className="mx-auto mt-4 max-w-2xl text-body-md text-white/85 md:text-body-lg">{body}</p>
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-inverse mt-8 rounded-full">
+        <Link href={BOOKING_PATH} className="btn btn-inverse mt-8 rounded-full">
           Book a free 30-minute call
           <ArrowRight size={16} />
-        </a>
+        </Link>
         {perks.length > 0 && (
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-6 font-display text-label-md text-white/90">
             {perks.map((perk) => (

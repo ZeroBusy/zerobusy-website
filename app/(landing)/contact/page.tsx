@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import CalEmbed from "@/components/landing/CalEmbed";
 import FitCheck from "@/components/landing/FitCheck";
 import { faqs } from "./faqs";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
 
 /**
  * Where contact submissions are POSTed as JSON.
@@ -449,14 +447,12 @@ export default function ContactPage() {
                 </div>
               </div>
               <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#book-call"
                 className="flex shrink-0 items-center gap-1 rounded-lg bg-primary px-3.5 py-2 font-display text-label-md font-semibold text-white transition-all hover:bg-primary-hover"
               >
                 Let&apos;s connect
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M7 17 17 7M7 7h10v10" />
+                  <path d="M12 5v14M5 12l7 7 7-7" />
                 </svg>
               </a>
             </div>
@@ -493,6 +489,18 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ===== BOOK A CALL (inline cal.com) ===== */}
+      <section id="book-call" className="scroll-mt-28 rounded-xl border border-line bg-white px-4 py-10 md:px-8 md:py-12">
+        <div className="mx-auto mb-6 flex max-w-2xl flex-col items-center px-2 text-center">
+          <span className="font-display text-label-sm font-bold tracking-wider text-primary uppercase">Schedule a call</span>
+          <h2 className="mt-1 font-display text-headline-lg font-bold text-ink">Pick a time that works for you</h2>
+          <p className="mt-2 text-body-md text-ink-soft">
+            30 minutes, free. We look at how your team works and point out the first three things worth automating.
+          </p>
+        </div>
+        <CalEmbed />
       </section>
 
       {/* ===== METRICS STRIP ===== */}
@@ -580,9 +588,7 @@ export default function ContactPage() {
 
           <div className="flex w-full shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:w-auto">
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#book-call"
               className="btn rounded-lg bg-white font-bold text-primary shadow-lg transition-all hover:bg-canvas hover:shadow-xl"
             >
               <CalendarIcon />

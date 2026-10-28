@@ -1,11 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import { goodFit, notFit, type NotFitItem } from "./fitCheckContent";
-
-const BOOKING_URL =
-  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR";
+import { BOOKING_PATH } from "@/lib/booking";
 
 type Side = "good" | "not";
 
@@ -196,12 +195,12 @@ export default function FitCheck() {
           <p className="text-body-md text-ink-soft">
             Still not sure? That is what the call is for.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary rounded-full">
+          <Link href={BOOKING_PATH} className="btn btn-primary rounded-full">
             Book a free 30-minute call
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 12h13M12 5.5 18.5 12 12 18.5" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

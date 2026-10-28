@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Logo from "./Logo";
+import { BOOKING_PATH } from "@/lib/booking";
 
 const socials = [
   {
@@ -93,17 +95,15 @@ export default function Footer() {
             <h4 className="mb-4 text-label-sm text-white/50">GET STARTED</h4>
             <div className="rounded-lg border border-white/10 bg-white/5 p-5">
               <p className="mb-4 text-body-md text-white/80">Find the first hours you can win back.</p>
-              <a
-                href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4lcnMMoopwFkC3IOVU42sT9zC9Q5QptB8tlJp33t0a3tCYa3QAZrSHOWmYFuM5HdwjCT5egR"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={BOOKING_PATH}
                 className="btn btn-accent w-full rounded-base"
               >
                 Book a free 30-minute call
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <path d="M9 6l6 6-6 6" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
